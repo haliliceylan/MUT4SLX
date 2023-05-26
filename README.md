@@ -2,9 +2,13 @@
 
 MUT4SLX tool focuses on performing mutation testing on a model implemented in MATLAB/Simulink. It applies various mutation operators to the model and generates Simulink model mutants.
 
+
 ## Description
 
 The Simulink Model Mutation Testing project provides a framework for generating mutants, and CSV file as an output. It utilizes the MATLAB environment to load the model, apply mutations, and collect outputs.
+
+# DEMO
+[![DEMO](http://img.youtube.com/vi/inud_NRGutc/0.jpg)](http://www.youtube.com/watch?v=inud_NRGutc)
 
 ## Features
 
