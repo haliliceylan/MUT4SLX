@@ -30,7 +30,7 @@ optional arguments:
 
 - MATLAB [version R2019a](https://nl.mathworks.com/products/matlab.html)
 - Python [version 3.7.8](https://www.python.org/downloads/release/python-378/)
-- Libraries: [matlab.engine](https://www.mathworks.com/help/matlab/matlab-engine-for-python.html), [jinja2](https://jinja.palletsprojects.com/)
+- Libraries: [matlab.engine](https://www.mathworks.com/help/matlab/matlab-engine-for-python.html)
 
 ### Installation
 
