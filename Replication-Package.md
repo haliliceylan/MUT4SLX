@@ -12,7 +12,6 @@ The Simulink Model Mutation Testing project provides a framework for generating 
 
 - Mutation generation: Apply a set of predefined mutation operators to the model.
 - CVS output generation: Generate an CSV output summarizing the mutations.
-- 
 ## Getting Started
 
 ```
