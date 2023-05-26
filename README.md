@@ -1,14 +1,14 @@
 # MUT4SLX
 
-This project focuses on performing mutation testing on a model implemented in MATLAB/Simulink. It applies various mutation operators to the model and evaluates the effectiveness of the test suite by measuring how many mutants are killed.
+MUT4SLX tool focuses on performing mutation testing on a model implemented in MATLAB/Simulink. It applies various mutation operators to the model and generates Simulink model mutants.
 
 ## Description
 
-The Simulink Model Mutation Testing project provides a framework for generating mutants, executing tests, and analyzing the results. It utilizes the MATLAB environment to load the model, apply mutations, run tests, and collect metrics.
+The Simulink Model Mutation Testing project provides a framework for generating mutants, and CSV file as an output. It utilizes the MATLAB environment to load the model, apply mutations, and collect outputs.
 
 ## Features
 
-- Mutation generation: Apply a set of predefined mutation operators to the model.
+- Mutant generation: Apply a set of predefined mutation operators to the Simulink model.
 - CVS output generation: Generate an CSV output summarizing the mutations.
 
 ## Getting Started
@@ -26,13 +26,12 @@ optional arguments:
 
 ### Prerequisites
 
-- MATLAB [version R2019a](https://nl.mathworks.com/products/matlab.html)
-- Python [version 3.7.8](https://www.python.org/downloads/release/python-378/)
+- MATLAB [version R2021b](https://nl.mathworks.com/products/matlab.html)
+- Python [version 3.7.8](https://www.python.org/downloads/)
 - Libraries: [matlab.engine](https://www.mathworks.com/help/matlab/matlab-engine-for-python.html)
 
 ### Installation
 
-For windows you can follow this https://github.com/haliliceylan/MUT4SLX/blob/main/INSTALL-WINDOWS.md
 1. Clone the repository: `git clone https://github.com/haliliceylan/MUT4SLX.git`
 2. Install the required libraries: `pip install -r requirements.txt`
 
