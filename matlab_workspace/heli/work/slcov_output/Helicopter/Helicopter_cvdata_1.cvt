@@ -1,0 +1,285 @@
+CV_Database {
+  modelcov {
+    id			    1
+    name		    "Helicopter@(R2021b)"
+    unmangledName	    "Helicopter"
+    dbVersion		    "(R2021b)"
+    canHarnessMapBackToOwner 1
+    refModelcovIds	    [1]
+    topModelcovId	    [1]
+    rootTree		    [0 2 0 0]
+    blockTypes		    [7]
+  }
+  root {
+    id			    2
+    modelcov		    1
+    topSlsf		    8
+    firstTest		    3
+    treeNode		    [1 0 0 0]
+    checksum		    [3640929747 2391145899 399775578 1361431563]
+    dataSize		    [0 0 0 0 26 0 0]
+    runningTotal	    4
+  }
+  testdata {
+    id			    3
+    modelcov		    1
+    tag			    "Run 2"
+    uniqueId		    "7127ccdf-02e0-4fcf-95f9-6f24ff1fdf38"
+    linkNode		    [2 0 4]
+    type		    DLGENABLED_TST
+    settings		    [1 1 0 1 0 1 0]
+    modelVersion	    "1.168"
+    creator		    "The MathWorks Inc."
+    lastModifiedDate	    "Mon Sep 16 20:39:42 2019"
+    blockReductionStatus    "off"
+    defaultParameterBehavior "Tunable"
+    dbVersion		    "(R2021b)"
+    dbversionToRestore	    "(R2021b)"
+    conditionallyExecuteInputs 1
+    startTime		    738961.6405626504
+    stopTime		    738961.6405763184
+    simStopTime		    10
+    testobjectives	    [0 0 0 0 0 0 0 0 0 0 0 0 0 5]
+    mcdcMode		    1
+    mldref_enable	    "on"
+    forceBlockReductionOff  1
+    covBoundaryRelTol	    0.01
+    covBoundaryAbsTol	    1e-05
+    covSFcnEnable	    1
+  }
+  testdata {
+    id			    4
+    modelcov		    1
+    analyzedModel	    "Helicopter"
+    tag			    "Run 1"
+    uniqueId		    "22da18ef-53dc-4753-ab49-dfb6395e9c6c"
+    aggregatedIds	    "7127ccdf-02e0-4fcf-95f9-6f24ff1fdf38,76aed4f5-21b6-4abc-a605-fba3ebc5357c"
+    linkNode		    [2 3 0]
+    settings		    [1 1 0 1 0 1 0]
+    modelVersion	    "1.168"
+    creator		    "The MathWorks Inc."
+    lastModifiedDate	    "Mon Sep 16 20:39:42 2019"
+    blockReductionStatus    "off"
+    defaultParameterBehavior "Tunable"
+    dbVersion		    "(R2021b)"
+    dbversionToRestore	    "(R2021b)"
+    conditionallyExecuteInputs 1
+    startTime		    738961.6404342265
+    stopTime		    738961.6405763184
+    data {
+      sfcnCovData	      "100 T\"AAFJTQAAAAAOAAAAmAAAAAYAAAAIAAAAEQAAAAAAAAABAAAAAAAAAAEABABNQ09TAQAAAB4AAABTbENvdi5yZX"
+      "N1bHRzLkNvZGVDb3ZEYXRhR3JvdXAAAA4AAABIAAAABgAAAAgAAAANAAAAAAAAAAUAAAAIAAAABgAAAAEAAAABAAAAAAAAAAYAAAAYAAAAAAAA3Q"
+      "IAAAABAAAAAQAAAAEAAAACAAAADgAAAEAGAAAGAAAACAAAAAkAAAAAAAAABQAAAAgAAAABAAAAEAYAAAEAAAAAAAAAAgAAABAGAAAAAUlNAAAAAA"
+      "4AAABwBQAABgAAAAgAAAACAAAAAAAAAAUAAAAIAAAAAQAAAAEAAAABAAAAAAAAAAUABAAFAAAAAQAAAAUAAABNQ09TAAAAAA4AAAAoBQAABgAAAA"
+      "gAAAARAAAAAAAAAAEAAAAAAAAAAQAEAE1DT1MBAAAADQAAAEZpbGVXcmFwcGVyX18AAAAOAAAA6AQAAAYAAAAIAAAAAQAAAAAAAAAFAAAACAAAAA"
+      "cAAAABAAAAAQAAAAAAAAAOAAAAeAEAAAYAAAAIAAAACQAAAAAAAAAFAAAACAAAAEgBAAABAAAAAQAAAAAAAAACAAAASAEAAAMAAAAHAAAAgAAAAL"
+      "AAAACwAAAA+AAAADABAABIAQAAAAAAAAAAAABEYXRhAHNlcmlhbGl6YXRpb24ATWFwAGNvbnRhaW5lcnMARmlsdGVyZWRJbnN0YW5jZXMAQ29kZU"
+      "NvdkRhdGFHcm91cABTbENvdi5yZXN1bHRzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAADAAAAAAAAAAAAAAAHAAAABgAAAAAAAAAAAAAAAAAAAA"
+      "AAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAEAAAACAAAAAQAAAAAAAAAAAAAAAAAAAAIAAAABAAAAAAAAAAAAAAACAAAAAQAAAA"
+      "EAAAABAAAABQAAAAEAAAACAAAAAAAAAAEAAAACAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOAAAAAAAAAA4AAAB4AQAABgAAAA"
+      "gAAAACAAAAAAAAAAUAAAAIAAAAAQAAAAEAAAABAAAAAAAAAAUABAALAAAAAQAAADcAAABrZXlzAAAAAAAAAHZhbHVlcwAAAAAAdW5pZm9ybWl0eQ"
+      "BrZXlUeXBlAAAAAHZhbHVlVHlwZQAAAA4AAAAoAAAABgAAAAgAAAABAAAAAAAAAAUAAAAIAAAAAQAAAAAAAAABAAAAAAAAAA4AAAAoAAAABgAAAA"
+      "gAAAABAAAAAAAAAAUAAAAIAAAAAQAAAAAAAAABAAAAAAAAAA4AAAAwAAAABgAAAAgAAAAJAgAAAAAAAAUAAAAIAAAAAQAAAAEAAAABAAAAAAAAAA"
+      "IAAQAAAAAADgAAADAAAAAGAAAACAAAAAQAAAAAAAAABQAAAAgAAAABAAAABAAAAAEAAAAAAAAAEAAEAGNoYXIOAAAAMAAAAAYAAAAIAAAABAAAAA"
+      "AAAAAFAAAACAAAAAEAAAADAAAAAQAAAAAAAAAQAAMAYW55AA4AAABIAAAABgAAAAgAAAANAAAAAAAAAAUAAAAIAAAABgAAAAEAAAABAAAAAAAAAA"
+      "YAAAAYAAAAAAAA3QIAAAABAAAAAQAAAAIAAAABAAAADgAAACgAAAAGAAAACAAAAAEAAAAAAAAABQAAAAgAAAAAAAAAAAAAAAEAAAAAAAAADgAAAE"
+      "AAAAAGAAAACAAAAAwAAAAAAAAABQAAAAgAAAADAAAAAQAAAAEAAAAAAAAABQAAAAwAAAAAAAAAAAAAAAAAAAAAAAAADgAAAOgAAAAGAAAACAAAAA"
+      "EAAAAAAAAABQAAAAgAAAADAAAAAQAAAAEAAAAAAAAADgAAADgAAAAGAAAACAAAAAIAAAAAAAAABQAAAAgAAAABAAAAAAAAAAEAAAAAAAAABQAEAA"
+      "EAAAABAAAAAAAAAA4AAAA4AAAABgAAAAgAAAACAAAAAAAAAAUAAAAIAAAAAQAAAAAAAAABAAAAAAAAAAUABAABAAAAAQAAAAAAAAAOAAAAOAAAAA"
+      "YAAAAIAAAAAgAAAAAAAAAFAAAACAAAAAEAAAAAAAAAAQAAAAAAAAAFAAQAAQAAAAEAAAAAAAAADgAAAIgAAAAGAAAACAAAAAkAAAAAAAAABQAAAA"
+      "gAAAABAAAAWAAAAAEAAAAAAAAAAgAAAFgAAAAAAUlNAAAAAA4AAABIAAAABgAAAAgAAAACAAAAAAAAAAUAAAAIAAAAAQAAAAEAAAABAAAAAAAAAA"
+      "UABAAFAAAAAQAAAAUAAABNQ09TAAAAAA4AAAAAAAAA\""
+    }
+    testRunInfo		    "100 S'runId','runName','testId'{{M[0],T\"\",M[]}}"
+    testobjectives	    [0 0 0 0 0 0 0 0 0 0 0 0 0 6]
+    mcdcMode		    1
+    isDerived		    1
+    covSFcnEnable	    1
+  }
+  metricdata {
+    id			    5
+    metricenumValue	    14
+    metricName		    "cvmetric_Structural_block"
+    size		    17
+    data {
+      rawdata		      "100 M17x1[3 0 1 0 1 0 10879 1 0 1 0 10879 1 0 1 0 1001]"
+    }
+  }
+  metricdata {
+    id			    6
+    metricenumValue	    14
+    metricName		    "cvmetric_Structural_block"
+    data {
+      rawdata		      "100 M17x1[3 0 1 0 1 0 21758 1 0 1 0 21758 1 0 1 0 2002]"
+    }
+  }
+  typename {
+    id			    7
+    type		    "Gain"
+  }
+  slsfobj {
+    id			    8
+    name		    "Helicopter"
+    origin		    SIMULINK_OBJ
+    modelcov		    1
+    treeNode		    [0 9 0 0]
+    metricFlags		    16400
+    metrics		    [13 14]
+    cvChecksum {
+      u1		      3640929747
+      u2		      2391145899
+      u3		      399775578
+      u4		      1361431563
+    }
+  }
+  slsfobj {
+    id			    9
+    name		    "Gearing"
+    origin		    SIMULINK_OBJ
+    slBlckType		    7
+    modelcov		    1
+    treeNode		    [8 0 0 10]
+    metricFlags		    16400
+    metrics		    [15 16]
+    cvChecksum {
+      u1		      1501853299
+      u2		      3442924926
+      u3		      3190423120
+      u4		      4139575570
+    }
+  }
+  slsfobj {
+    id			    10
+    name		    "Helicopter"
+    origin		    SIMULINK_OBJ
+    modelcov		    1
+    treeNode		    [8 0 9 11]
+    metricFlags		    16400
+    metrics		    [19 20]
+    cvChecksum {
+      u1		      1699864253
+      u2		      1783690987
+      u3		      1216379433
+      u4		      3702660177
+    }
+  }
+  slsfobj {
+    id			    11
+    name		    "Mux3"
+    origin		    SIMULINK_OBJ
+    modelcov		    1
+    treeNode		    [8 0 10 12]
+    cvChecksum {
+      u1		      3439279571
+      u2		      2561743879
+      u3		      3663033115
+      u4		      195740233
+    }
+  }
+  slsfobj {
+    id			    12
+    name		    "Zero-Order\nHold"
+    origin		    SIMULINK_OBJ
+    modelcov		    1
+    treeNode		    [8 0 11 0]
+    metricFlags		    16400
+    metrics		    [23 24]
+    cvChecksum {
+      u1		      1699864253
+      u2		      1783690987
+      u3		      1216379433
+      u4		      3702660177
+    }
+  }
+  metric {
+    id			    13
+  }
+  metric {
+    id			    14
+    dataIdx		    [0 -1]
+    justifiedDataIdx	    [1 0]
+    dataCnt		    [3 0 -1 -1]
+    dataWidth		    18
+  }
+  sigranger {
+    id			    15
+    modelcov		    1
+    slsfobj		    9
+    cov			    [0 1 3]
+  }
+  metric {
+    id			    16
+    baseObjs		    [17]
+    dataIdx		    [4 2]
+    justifiedDataIdx	    [5 3]
+    dataCnt		    [1 1 -1 -1]
+    dataWidth		    6
+  }
+  decision {
+    id			    17
+    modelcov		    1
+    slsfobj		    9
+    relopChkExprIdx	    -1
+    descriptor		    18
+    dc			    [1 0 6 0]
+  }
+  message {
+    id			    18
+    keyNum		    24
+    txtParams		    "executed"
+  }
+  sigranger {
+    id			    19
+    modelcov		    1
+    slsfobj		    10
+    cov			    [6 1 5]
+  }
+  metric {
+    id			    20
+    baseObjs		    [21]
+    dataIdx		    [9 7]
+    justifiedDataIdx	    [10 8]
+    dataCnt		    [1 1 -1 -1]
+    dataWidth		    6
+  }
+  decision {
+    id			    21
+    modelcov		    1
+    slsfobj		    10
+    relopChkExprIdx	    -1
+    descriptor		    22
+    dc			    [1 0 11 0]
+  }
+  message {
+    id			    22
+    keyNum		    24
+    txtParams		    "executed"
+  }
+  sigranger {
+    id			    23
+    modelcov		    1
+    slsfobj		    12
+    cov			    [16 1 5]
+  }
+  metric {
+    id			    24
+    baseObjs		    [25]
+    dataIdx		    [14 12]
+    justifiedDataIdx	    [15 13]
+    dataCnt		    [1 1 -1 -1]
+    dataWidth		    6
+  }
+  decision {
+    id			    25
+    modelcov		    1
+    slsfobj		    12
+    relopChkExprIdx	    -1
+    descriptor		    26
+    dc			    [1 0 16 0]
+  }
+  message {
+    id			    26
+    keyNum		    24
+    txtParams		    "executed"
+  }
+}

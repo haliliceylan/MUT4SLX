@@ -1,0 +1,42 @@
+{
+  "mutant_operators": [
+    "ROR",
+    "LOR",
+    "ASR",
+    "MMR",
+    "ICR",
+    "TOR",
+    "MOR",
+    "PMR",
+    "POR",
+    "FIR",
+    "FLR",
+    "UDO",
+    "SCR",
+    "STR",
+    "CR"
+  ],
+
+  "Heli": {
+    "model": "HelicopterSystem",
+    "cd": "matlab_workspace/heli",
+    "project": "heli.prj",
+    "system": "HelicopterSystem",
+    "test": "HeliLoopTest"
+  },
+  "sf_aircraft": {
+    "model": "sf_aircraft",
+    "cd": "matlab_workspace/fimtool_cases/Aircraft_fault_injector/sf_aircraft_model",
+    "system": "sf_aircraft"
+  },
+  "Aircraft": {
+    "model": "Aircraft",
+    "cd": "matlab_workspace/fimtool_cases/Aircraft_fault_injector/sf_aircraft_model",
+    "system": "Aircraft"
+  },
+  "AutotransModel": {
+    "model": "AutotransModel",
+    "cd": "matlab_workspace/fimtool_cases/Autotrans_fault_injector/cav_benchmark",
+    "system": "AutotransModel"
+  }
+}

@@ -1,0 +1,228 @@
+CV_Database {
+  modelcov {
+    id			    1
+    name		    "Helicopter@(R2021b)"
+    unmangledName	    "Helicopter"
+    dbVersion		    "(R2021b)"
+    canHarnessMapBackToOwner 1
+    refModelcovIds	    [1]
+    topModelcovId	    [1]
+    rootTree		    [0 2 0 0]
+    blockTypes		    [5]
+  }
+  root {
+    id			    2
+    modelcov		    1
+    topSlsf		    6
+    firstTest		    3
+    treeNode		    [1 0 0 0]
+    checksum		    [3640929747 2391145899 399775578 1361431563]
+    dataSize		    [0 0 0 0 26 0 0]
+    runningTotal	    3
+  }
+  testdata {
+    id			    3
+    modelcov		    1
+    tag			    "Run 1"
+    uniqueId		    "76aed4f5-21b6-4abc-a605-fba3ebc5357c"
+    linkNode		    [2 0 0]
+    type		    DLGENABLED_TST
+    settings		    [1 1 0 1 0 1 0]
+    modelVersion	    "1.168"
+    creator		    "The MathWorks Inc."
+    lastModifiedDate	    "Mon Sep 16 20:39:42 2019"
+    blockReductionStatus    "off"
+    defaultParameterBehavior "Tunable"
+    dbVersion		    "(R2021b)"
+    dbversionToRestore	    "(R2021b)"
+    conditionallyExecuteInputs 1
+    startTime		    738961.6404342265
+    stopTime		    738961.640444995
+    simStopTime		    10
+    testobjectives	    [0 0 0 0 0 0 0 0 0 0 0 0 0 4]
+    mcdcMode		    1
+    mldref_enable	    "on"
+    forceBlockReductionOff  1
+    covBoundaryRelTol	    0.01
+    covBoundaryAbsTol	    1e-05
+    covSFcnEnable	    1
+  }
+  metricdata {
+    id			    4
+    metricenumValue	    14
+    metricName		    "cvmetric_Structural_block"
+    size		    17
+    data {
+      rawdata		      "100 M17x1[3 0 1 0 1 0 10879 1 0 1 0 10879 1 0 1 0 1001]"
+    }
+  }
+  typename {
+    id			    5
+    type		    "Gain"
+  }
+  slsfobj {
+    id			    6
+    name		    "Helicopter"
+    origin		    SIMULINK_OBJ
+    modelcov		    1
+    treeNode		    [0 7 0 0]
+    metricFlags		    16400
+    metrics		    [11 12]
+    cvChecksum {
+      u1		      3640929747
+      u2		      2391145899
+      u3		      399775578
+      u4		      1361431563
+    }
+  }
+  slsfobj {
+    id			    7
+    name		    "Gearing"
+    origin		    SIMULINK_OBJ
+    slBlckType		    5
+    modelcov		    1
+    treeNode		    [6 0 0 8]
+    metricFlags		    16400
+    metrics		    [13 14]
+    cvChecksum {
+      u1		      1501853299
+      u2		      3442924926
+      u3		      3190423120
+      u4		      4139575570
+    }
+  }
+  slsfobj {
+    id			    8
+    name		    "Helicopter"
+    origin		    SIMULINK_OBJ
+    modelcov		    1
+    treeNode		    [6 0 7 9]
+    metricFlags		    16400
+    metrics		    [17 18]
+    cvChecksum {
+      u1		      1699864253
+      u2		      1783690987
+      u3		      1216379433
+      u4		      3702660177
+    }
+  }
+  slsfobj {
+    id			    9
+    name		    "Mux3"
+    origin		    SIMULINK_OBJ
+    modelcov		    1
+    treeNode		    [6 0 8 10]
+    cvChecksum {
+      u1		      3439279571
+      u2		      2561743879
+      u3		      3663033115
+      u4		      195740233
+    }
+  }
+  slsfobj {
+    id			    10
+    name		    "Zero-Order\nHold"
+    origin		    SIMULINK_OBJ
+    modelcov		    1
+    treeNode		    [6 0 9 0]
+    metricFlags		    16400
+    metrics		    [21 22]
+    cvChecksum {
+      u1		      1699864253
+      u2		      1783690987
+      u3		      1216379433
+      u4		      3702660177
+    }
+  }
+  metric {
+    id			    11
+  }
+  metric {
+    id			    12
+    dataIdx		    [0 -1]
+    justifiedDataIdx	    [1 0]
+    dataCnt		    [3 0 -1 -1]
+    dataWidth		    18
+  }
+  sigranger {
+    id			    13
+    modelcov		    1
+    slsfobj		    7
+    cov			    [0 1 3]
+  }
+  metric {
+    id			    14
+    baseObjs		    [15]
+    dataIdx		    [4 2]
+    justifiedDataIdx	    [5 3]
+    dataCnt		    [1 1 -1 -1]
+    dataWidth		    6
+  }
+  decision {
+    id			    15
+    modelcov		    1
+    slsfobj		    7
+    relopChkExprIdx	    -1
+    descriptor		    16
+    dc			    [1 0 6 0]
+  }
+  message {
+    id			    16
+    keyNum		    24
+    txtParams		    "executed"
+  }
+  sigranger {
+    id			    17
+    modelcov		    1
+    slsfobj		    8
+    cov			    [6 1 5]
+  }
+  metric {
+    id			    18
+    baseObjs		    [19]
+    dataIdx		    [9 7]
+    justifiedDataIdx	    [10 8]
+    dataCnt		    [1 1 -1 -1]
+    dataWidth		    6
+  }
+  decision {
+    id			    19
+    modelcov		    1
+    slsfobj		    8
+    relopChkExprIdx	    -1
+    descriptor		    20
+    dc			    [1 0 11 0]
+  }
+  message {
+    id			    20
+    keyNum		    24
+    txtParams		    "executed"
+  }
+  sigranger {
+    id			    21
+    modelcov		    1
+    slsfobj		    10
+    cov			    [16 1 5]
+  }
+  metric {
+    id			    22
+    baseObjs		    [23]
+    dataIdx		    [14 12]
+    justifiedDataIdx	    [15 13]
+    dataCnt		    [1 1 -1 -1]
+    dataWidth		    6
+  }
+  decision {
+    id			    23
+    modelcov		    1
+    slsfobj		    10
+    relopChkExprIdx	    -1
+    descriptor		    24
+    dc			    [1 0 16 0]
+  }
+  message {
+    id			    24
+    keyNum		    24
+    txtParams		    "executed"
+  }
+}

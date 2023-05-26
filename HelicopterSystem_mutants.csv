@@ -1,0 +1,83 @@
+ModelName,SubSystem,BlockName,BlockType,MutationClass,Parameter,OriginalValue,MutationValue,FullPath
+HelicopterSystem,ActuatorLoop,Sum,Sum,OneSpaceSumMutationIterator,Inputs,|-+,|--,ActuatorLoop/Sum
+HelicopterSystem,ActuatorLoop,Sum,Sum,OneSpaceSumMutationIterator,Inputs,|-+,|++,ActuatorLoop/Sum
+HelicopterSystem,ActuatorLoop,Sum,Sum,OneSpaceSumMutationIterator,Inputs,|-+,|+-,ActuatorLoop/Sum
+HelicopterSystem,Heli_inner_loop,Sum4,Sum,OneSpaceSumMutationIterator,Inputs,|+-,|-+,Heli_inner_loop/Sum4
+HelicopterSystem,Heli_inner_loop,Sum4,Sum,OneSpaceSumMutationIterator,Inputs,|+-,|--,Heli_inner_loop/Sum4
+HelicopterSystem,Heli_inner_loop,Sum4,Sum,OneSpaceSumMutationIterator,Inputs,|+-,|++,Heli_inner_loop/Sum4
+HelicopterSystem,Heli_inner_loop,Sum5,Sum,OneSpaceSumMutationIterator,Inputs,|+-,|-+,Heli_inner_loop/Sum5
+HelicopterSystem,Heli_inner_loop,Sum5,Sum,OneSpaceSumMutationIterator,Inputs,|+-,|--,Heli_inner_loop/Sum5
+HelicopterSystem,Heli_inner_loop,Sum5,Sum,OneSpaceSumMutationIterator,Inputs,|+-,|++,Heli_inner_loop/Sum5
+HelicopterSystem,Heli_inner_loop,Sum6,Sum,OneSpaceSumMutationIterator,Inputs,|+-,|-+,Heli_inner_loop/Sum6
+HelicopterSystem,Heli_inner_loop,Sum6,Sum,OneSpaceSumMutationIterator,Inputs,|+-,|--,Heli_inner_loop/Sum6
+HelicopterSystem,Heli_inner_loop,Sum6,Sum,OneSpaceSumMutationIterator,Inputs,|+-,|++,Heli_inner_loop/Sum6
+HelicopterSystem,Heli_outer_loop,Sum,Sum,OneSpaceSumMutationIterator,Inputs,|+-,|-+,Heli_outer_loop/Sum
+HelicopterSystem,Heli_outer_loop,Sum,Sum,OneSpaceSumMutationIterator,Inputs,|+-,|--,Heli_outer_loop/Sum
+HelicopterSystem,Heli_outer_loop,Sum,Sum,OneSpaceSumMutationIterator,Inputs,|+-,|++,Heli_outer_loop/Sum
+HelicopterSystem,Heli_outer_loop,Sum1,Sum,OneSpaceSumMutationIterator,Inputs,|+-,|-+,Heli_outer_loop/Sum1
+HelicopterSystem,Heli_outer_loop,Sum1,Sum,OneSpaceSumMutationIterator,Inputs,|+-,|--,Heli_outer_loop/Sum1
+HelicopterSystem,Heli_outer_loop,Sum1,Sum,OneSpaceSumMutationIterator,Inputs,|+-,|++,Heli_outer_loop/Sum1
+HelicopterSystem,Heli_outer_loop,Sum2,Sum,OneSpaceSumMutationIterator,Inputs,|+-,|-+,Heli_outer_loop/Sum2
+HelicopterSystem,Heli_outer_loop,Sum2,Sum,OneSpaceSumMutationIterator,Inputs,|+-,|--,Heli_outer_loop/Sum2
+HelicopterSystem,Heli_outer_loop,Sum2,Sum,OneSpaceSumMutationIterator,Inputs,|+-,|++,Heli_outer_loop/Sum2
+HelicopterSystem,Heli_outer_loop,Sum3,Sum,OneSpaceSumMutationIterator,Inputs,|++,|+-,Heli_outer_loop/Sum3
+HelicopterSystem,Heli_outer_loop,Sum3,Sum,OneSpaceSumMutationIterator,Inputs,|++,|-+,Heli_outer_loop/Sum3
+HelicopterSystem,Heli_outer_loop,Sum3,Sum,OneSpaceSumMutationIterator,Inputs,|++,|--,Heli_outer_loop/Sum3
+HelicopterSystem,Heli_outer_loop,Sum4,Sum,OneSpaceSumMutationIterator,Inputs,|++,|+-,Heli_outer_loop/Sum4
+HelicopterSystem,Heli_outer_loop,Sum4,Sum,OneSpaceSumMutationIterator,Inputs,|++,|-+,Heli_outer_loop/Sum4
+HelicopterSystem,Heli_outer_loop,Sum4,Sum,OneSpaceSumMutationIterator,Inputs,|++,|--,Heli_outer_loop/Sum4
+HelicopterSystem,Heli_outer_loop,Sum5,Sum,OneSpaceSumMutationIterator,Inputs,|++,|+-,Heli_outer_loop/Sum5
+HelicopterSystem,Heli_outer_loop,Sum5,Sum,OneSpaceSumMutationIterator,Inputs,|++,|-+,Heli_outer_loop/Sum5
+HelicopterSystem,Heli_outer_loop,Sum5,Sum,OneSpaceSumMutationIterator,Inputs,|++,|--,Heli_outer_loop/Sum5
+HelicopterSystem,AHRS_voter/Mid_Value,MinMax,MinMax,MinMaxMutationIterator,function,min,max,AHRS_voter/Mid_Value/MinMax
+HelicopterSystem,AHRS_voter/Mid_Value,MinMax1,MinMax,MinMaxMutationIterator,function,min,max,AHRS_voter/Mid_Value/MinMax1
+HelicopterSystem,AHRS_voter/Mid_Value,MinMax2,MinMax,MinMaxMutationIterator,function,min,max,AHRS_voter/Mid_Value/MinMax2
+HelicopterSystem,AHRS_voter/Mid_Value,MinMax3,MinMax,MinMaxMutationIterator,function,max,min,AHRS_voter/Mid_Value/MinMax3
+HelicopterSystem,AHRS_voter/Avg_Value,Switch,Switch,SwitchMutationIterator,Criteria,u2 ~= 0,u2 >= Threshold,AHRS_voter/Avg_Value/Switch
+HelicopterSystem,AHRS_voter/Avg_Value,Switch1,Switch,SwitchMutationIterator,Criteria,u2 ~= 0,u2 >= Threshold,AHRS_voter/Avg_Value/Switch1
+HelicopterSystem,AHRS_voter/Avg_Value,Switch2,Switch,SwitchMutationIterator,Criteria,u2 ~= 0,u2 >= Threshold,AHRS_voter/Avg_Value/Switch2
+HelicopterSystem,AHRS_voter/Single_Value,Switch,Switch,SwitchMutationIterator,Criteria,u2 ~= 0,u2 >= Threshold,AHRS_voter/Single_Value/Switch
+HelicopterSystem,AHRS_voter/Single_Value,Switch1,Switch,SwitchMutationIterator,Criteria,u2 ~= 0,u2 >= Threshold,AHRS_voter/Single_Value/Switch1
+HelicopterSystem,AHRS_voter/Single_Value,Switch2,Switch,SwitchMutationIterator,Criteria,u2 ~= 0,u2 >= Threshold,AHRS_voter/Single_Value/Switch2
+HelicopterSystem,AHRS_voter/Avg_Value,Switch,Switch,SwitchLamdaMutationIterator,Threshold,0,10,AHRS_voter/Avg_Value/Switch
+HelicopterSystem,AHRS_voter/Avg_Value,Switch1,Switch,SwitchLamdaMutationIterator,Threshold,0,10,AHRS_voter/Avg_Value/Switch1
+HelicopterSystem,AHRS_voter/Avg_Value,Switch2,Switch,SwitchLamdaMutationIterator,Threshold,0,10,AHRS_voter/Avg_Value/Switch2
+HelicopterSystem,AHRS_voter/Single_Value,Switch,Switch,SwitchLamdaMutationIterator,Threshold,0,10,AHRS_voter/Single_Value/Switch
+HelicopterSystem,AHRS_voter/Single_Value,Switch1,Switch,SwitchLamdaMutationIterator,Threshold,0,10,AHRS_voter/Single_Value/Switch1
+HelicopterSystem,AHRS_voter/Single_Value,Switch2,Switch,SwitchLamdaMutationIterator,Threshold,0,10,AHRS_voter/Single_Value/Switch2
+HelicopterSystem,AHRS_Sensor,psi,Constant,ConstantLamdaMutationIterator,Value,0,1,AHRS_Sensor/psi
+HelicopterSystem,AHRS_Sensor,psi,Constant,ConstantLamdaMutationIterator,Value,0,10,AHRS_Sensor/psi
+HelicopterSystem,AHRS_Sensor,psi,Constant,ConstantLamdaMutationIterator,Value,0,100,AHRS_Sensor/psi
+HelicopterSystem,AHRS_Sensor,psi,Constant,ConstantLamdaMutationIterator,Value,0,-1,AHRS_Sensor/psi
+HelicopterSystem,AHRS_Sensor,psi,Constant,ConstantLamdaMutationIterator,Value,0,-10,AHRS_Sensor/psi
+HelicopterSystem,AHRS_Sensor,psi,Constant,ConstantLamdaMutationIterator,Value,0,-100,AHRS_Sensor/psi
+HelicopterSystem,AHRS_Sensor,valid,Constant,ConstantLamdaMutationIterator,Value,1,2,AHRS_Sensor/valid
+HelicopterSystem,AHRS_Sensor,valid,Constant,ConstantLamdaMutationIterator,Value,1,11,AHRS_Sensor/valid
+HelicopterSystem,AHRS_Sensor,valid,Constant,ConstantLamdaMutationIterator,Value,1,101,AHRS_Sensor/valid
+HelicopterSystem,AHRS_Sensor,valid,Constant,ConstantLamdaMutationIterator,Value,1,0,AHRS_Sensor/valid
+HelicopterSystem,AHRS_Sensor,valid,Constant,ConstantLamdaMutationIterator,Value,1,-9,AHRS_Sensor/valid
+HelicopterSystem,AHRS_Sensor,valid,Constant,ConstantLamdaMutationIterator,Value,1,-99,AHRS_Sensor/valid
+HelicopterSystem,actuator/Power Unit,"Pump
+Speed",Constant,ConstantLamdaMutationIterator,Value,188,189,"actuator/Power Unit/Pump
+Speed"
+HelicopterSystem,actuator/Power Unit,"Pump
+Speed",Constant,ConstantLamdaMutationIterator,Value,188,198,"actuator/Power Unit/Pump
+Speed"
+HelicopterSystem,actuator/Power Unit,"Pump
+Speed",Constant,ConstantLamdaMutationIterator,Value,188,288,"actuator/Power Unit/Pump
+Speed"
+HelicopterSystem,actuator/Power Unit,"Pump
+Speed",Constant,ConstantLamdaMutationIterator,Value,188,187,"actuator/Power Unit/Pump
+Speed"
+HelicopterSystem,actuator/Power Unit,"Pump
+Speed",Constant,ConstantLamdaMutationIterator,Value,188,178,"actuator/Power Unit/Pump
+Speed"
+HelicopterSystem,actuator/Power Unit,"Pump
+Speed",Constant,ConstantLamdaMutationIterator,Value,188,88,"actuator/Power Unit/Pump
+Speed"
+HelicopterSystem,actuator,zero offset,Constant,ConstantLamdaMutationIterator,Value,0.1,1.1,actuator/zero offset
+HelicopterSystem,actuator,zero offset,Constant,ConstantLamdaMutationIterator,Value,0.1,10.1,actuator/zero offset
+HelicopterSystem,actuator,zero offset,Constant,ConstantLamdaMutationIterator,Value,0.1,100.1,actuator/zero offset
+HelicopterSystem,actuator,zero offset,Constant,ConstantLamdaMutationIterator,Value,0.1,-0.9,actuator/zero offset
+HelicopterSystem,actuator,zero offset,Constant,ConstantLamdaMutationIterator,Value,0.1,-9.9,actuator/zero offset
+HelicopterSystem,actuator,zero offset,Constant,ConstantLamdaMutationIterator,Value,0.1,-99.9,actuator/zero offset
