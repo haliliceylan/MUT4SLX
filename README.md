@@ -9,10 +9,7 @@ The Simulink Model Mutation Testing project provides a framework for generating 
 ## Features
 
 - Mutation generation: Apply a set of predefined mutation operators to the model.
-- Test execution: Run test cases against both the original model and the generated mutants.
-- Mutation analysis: Calculate mutation scores, count killed mutants, and identify survived mutants.
-- HTML report generation: Generate an HTML report summarizing the mutation analysis results.
-- Visualization: Visualize the mutation analysis results using bar charts.
+- CVS output generation: Generate an CSV output summarizing the mutations.
 
 ## Getting Started
 
@@ -31,31 +28,31 @@ optional arguments:
 
 - MATLAB [version R2019a](https://nl.mathworks.com/products/matlab.html)
 - Python [version 3.7.8](https://www.python.org/downloads/release/python-378/)
-- Libraries: [matlab.engine](https://www.mathworks.com/help/matlab/matlab-engine-for-python.html), [jinja2](https://jinja.palletsprojects.com/)
+- Libraries: [matlab.engine](https://www.mathworks.com/help/matlab/matlab-engine-for-python.html)
 
 ### Installation
 
-For windows you can follow this https://github.com/haliliceylan/MUT4SLX-Duco/blob/main/INSTALL-WINDOWS.md
-1. Clone the repository: `git clone https://github.com/haliliceylan/MUT4SLX-Duco.git`
+For windows you can follow this https://github.com/haliliceylan/MUT4SLX/blob/main/INSTALL-WINDOWS.md
+1. Clone the repository: `git clone https://github.com/haliliceylan/MUT4SLX.git`
 2. Install the required libraries: `pip install -r requirements.txt`
 
 ### Usage
 
 1. Modify the `model_files.json` file to specify the models and their configurations.
 2. Run the main script: `python MUT4SLX.py --model MODEL`
-3. View the generated HTML report: `open <model_name>.html`
+3. View the generated CSV output: `open <model_name>.CSV`
 
 ## File Structure
 
-- `MUT4SLX.py`: Main script for performing mutation testing.
+- `MUT4SLX.py`: Main script for performing mutant generation.
 - `model_files.json`: Configuration file specifying the models and their details.
-- `index.html.j2`: Jinja2 template for generating the HTML report.
 - Other supporting files and directories.
 
 ## Example Use Cases
 
-
-### Example use case with TestLibStdPidCtrlShared_Sum_S32_S32_to_lim_S32
-[![asciicast](https://asciinema.org/a/B0fasAEl1l7zfKLe119TqfpFe.svg)](https://asciinema.org/a/B0fasAEl1l7zfKLe119TqfpFe)
-### Example use case with TestLibStdPidCtrlShared_PidCtrl_RsltU16Mult255
-[![asciicast](https://asciinema.org/a/Z6VAbWctcYOrxkg0D5kGuw74H.svg)](https://asciinema.org/a/Z6VAbWctcYOrxkg0D5kGuw74H)
+### Example use case with Helicopter Control System
+(https://github.com/wfpotter/DO178_Case_Study)
+### Example use case with Aircraft Elevator Control System
+(https://gitlab.com/DrishtiYadav/fimtool/-/tree/main/Aircraft_fault_injector/sf_aircraft_model)
+### Example use case with Automatic Transmission Controller System
+(https://gitlab.com/DrishtiYadav/fimtool/-/tree/main/Autotrans_fault_injector/cav_benchmark)
