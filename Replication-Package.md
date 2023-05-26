@@ -27,13 +27,12 @@ optional arguments:
 
 ### Prerequisites
 
-- MATLAB [version R2019a](https://nl.mathworks.com/products/matlab.html)
-- Python [version 3.7.8](https://www.python.org/downloads/release/python-378/)
+- MATLAB [version R2021b](https://nl.mathworks.com/products/matlab.html)
+- Python [version 3.9.16](https://www.python.org/downloads/)
 - Libraries: [matlab.engine](https://www.mathworks.com/help/matlab/matlab-engine-for-python.html)
 
 ### Installation
 
-For windows you can follow this https://github.com/haliliceylan/MUT4SLX/blob/main/INSTALL-WINDOWS.md
 1. Clone the repository: `git clone https://github.com/haliliceylan/MUT4SLX.git`
 2. Install the required libraries: `pip install -r requirements.txt`
 
