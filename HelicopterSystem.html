@@ -1,0 +1,1500 @@
+<html>
+  <head>
+  <title>HelicopterSystem</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css">
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .survived {
+            background-color: red;
+        }
+        .killed {
+            background-color: green;
+        }
+    </style>
+    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('#generalResult').DataTable({
+          searching: true,
+          paging: false,
+          info: false
+        });
+        $('#allMutants').DataTable();
+        $('#ExcludedBlocks').DataTable();
+        $('#ExcludedPaths').DataTable();
+      });
+    </script>
+    <script>
+      google.charts.load('current', {
+        packages: ['corechart']
+      });
+      function drawPieChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['', ''],
+          ['Killed', 28],
+          ['Survived', 42] //first
+        ]);
+        var options = {
+          title: 'Mutation Score',
+          slices: {
+            0: {
+              color: 'green'
+            },
+            1: {
+              color: 'red'
+            }
+          },
+          pieStartAngle: 180,
+        };
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+      }
+      google.charts.setOnLoadCallback(drawPieChart);
+    </script>
+  </head>
+  <body>
+    <div class="container-fluid">
+    <center><h1>HelicopterSystem</h1></center>
+      <div class="row">
+        <div class="col-6" id="piechart"></div>
+        <div class="col-6 text-right">
+            <canvas height="200" id="columnchart"></canvas>
+            <button type="button" class="btn btn-primary btn-sm" onclick="switchModeMyChart()">Switch Mode</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h2>General Result</h2>
+          <table class="table table-bordered" id="generalResult">
+            <thead>
+              <tr>
+                <th>Block Type</th>
+                <th>Total Mutant</th>
+                <th>Survived Mutant</th>
+                <th>Killed Mutant</th>
+                <th>Mutant Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td>
+                  <b>MinMax</b>
+                </td>
+                <td>4</td>
+                <td>4</td>
+                <td>0</td>
+                
+                    <td>%0.00</td>
+                
+                
+              </tr>
+              
+              <tr>
+                <td>
+                  <b>RelationalOperator</b>
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                
+                    <td>-</td>
+                
+                
+              </tr>
+              
+              <tr>
+                <td>
+                  <b>Sum</b>
+                </td>
+                <td>30</td>
+                <td>9</td>
+                <td>21</td>
+                
+                    <td>%70.00</td>
+                
+                
+              </tr>
+              
+              <tr>
+                <td>
+                  <b>Logic</b>
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                
+                    <td>-</td>
+                
+                
+              </tr>
+              
+              <tr>
+                <td>
+                  <b>If</b>
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                
+                    <td>-</td>
+                
+                
+              </tr>
+              
+              <tr>
+                <td>
+                  <b>Trigonometry</b>
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                
+                    <td>-</td>
+                
+                
+              </tr>
+              
+              <tr>
+                <td>
+                  <b>Math</b>
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                
+                    <td>-</td>
+                
+                
+              </tr>
+              
+              <tr>
+                <td>
+                  <b>Product</b>
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                
+                    <td>-</td>
+                
+                
+              </tr>
+              
+              <tr>
+                <td>
+                  <b>ForIterator</b>
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                
+                    <td>-</td>
+                
+                
+              </tr>
+              
+              <tr>
+                <td>
+                  <b>UnitDelay</b>
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                
+                    <td>-</td>
+                
+                
+              </tr>
+              
+              <tr>
+                <td>
+                  <b>Switch</b>
+                </td>
+                <td>12</td>
+                <td>12</td>
+                <td>0</td>
+                
+                    <td>%0.00</td>
+                
+                
+              </tr>
+              
+              <tr>
+                <td>
+                  <b>Constant</b>
+                </td>
+                <td>24</td>
+                <td>17</td>
+                <td>7</td>
+                
+                    <td>%29.17</td>
+                
+                
+              </tr>
+              
+              </tbody>
+              <tfoot>
+              <tr>
+                <td>
+                  <b>Total</b>
+                </td>
+                <td>
+                  <b>70</b>
+                </td>
+                <td>
+                  <b>42</b>
+                </td>
+                <td>
+                  <b>28</b>
+                </td>
+                <td>
+                  <b>%40.00</b>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+      <div class="p-4"></div>
+      <div class="row">
+        <div class="col-12">
+          <h2>All Mutants</h2>
+          <table class="table table-bordered" id="allMutants">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Block Type</th>
+                <th>Block</th>
+                <th>Parameter</th>
+                <th>Original</th>
+                <th>Mutant</th>
+                <th>Result</th>
+              </tr>
+            </thead>
+            <tbody>
+            
+            <tr>
+                <td>1</td>
+            
+                <td>MinMax</td>
+            
+                <td>'AHRS_voter/Mid_Value/MinMax'</td>
+            
+                <td>function</td>
+            
+                <td>min</td>
+            
+                <td>max</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>2</td>
+            
+                <td>MinMax</td>
+            
+                <td>'AHRS_voter/Mid_Value/MinMax1'</td>
+            
+                <td>function</td>
+            
+                <td>min</td>
+            
+                <td>max</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>3</td>
+            
+                <td>MinMax</td>
+            
+                <td>'AHRS_voter/Mid_Value/MinMax2'</td>
+            
+                <td>function</td>
+            
+                <td>min</td>
+            
+                <td>max</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>4</td>
+            
+                <td>MinMax</td>
+            
+                <td>'AHRS_voter/Mid_Value/MinMax3'</td>
+            
+                <td>function</td>
+            
+                <td>max</td>
+            
+                <td>min</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>5</td>
+            
+                <td>Sum</td>
+            
+                <td>'ActuatorLoop/Sum'</td>
+            
+                <td>Inputs</td>
+            
+                <td>|-+</td>
+            
+                <td>|--</td>
+            
+                <td class=" killed" >KILLED</td>
+            </tr>
+            
+            <tr>
+                <td>6</td>
+            
+                <td>Sum</td>
+            
+                <td>'ActuatorLoop/Sum'</td>
+            
+                <td>Inputs</td>
+            
+                <td>|-+</td>
+            
+                <td>|++</td>
+            
+                <td class=" killed" >KILLED</td>
+            </tr>
+            
+            <tr>
+                <td>7</td>
+            
+                <td>Sum</td>
+            
+                <td>'ActuatorLoop/Sum'</td>
+            
+                <td>Inputs</td>
+            
+                <td>|-+</td>
+            
+                <td>|+-</td>
+            
+                <td class=" killed" >KILLED</td>
+            </tr>
+            
+            <tr>
+                <td>8</td>
+            
+                <td>Sum</td>
+            
+                <td>'Heli_inner_loop/Sum4'</td>
+            
+                <td>Inputs</td>
+            
+                <td>|+-</td>
+            
+                <td>|-+</td>
+            
+                <td class=" killed" >KILLED</td>
+            </tr>
+            
+            <tr>
+                <td>9</td>
+            
+                <td>Sum</td>
+            
+                <td>'Heli_inner_loop/Sum4'</td>
+            
+                <td>Inputs</td>
+            
+                <td>|+-</td>
+            
+                <td>|--</td>
+            
+                <td class=" killed" >KILLED</td>
+            </tr>
+            
+            <tr>
+                <td>10</td>
+            
+                <td>Sum</td>
+            
+                <td>'Heli_inner_loop/Sum4'</td>
+            
+                <td>Inputs</td>
+            
+                <td>|+-</td>
+            
+                <td>|++</td>
+            
+                <td class=" killed" >KILLED</td>
+            </tr>
+            
+            <tr>
+                <td>11</td>
+            
+                <td>Sum</td>
+            
+                <td>'Heli_inner_loop/Sum5'</td>
+            
+                <td>Inputs</td>
+            
+                <td>|+-</td>
+            
+                <td>|-+</td>
+            
+                <td class=" killed" >KILLED</td>
+            </tr>
+            
+            <tr>
+                <td>12</td>
+            
+                <td>Sum</td>
+            
+                <td>'Heli_inner_loop/Sum5'</td>
+            
+                <td>Inputs</td>
+            
+                <td>|+-</td>
+            
+                <td>|--</td>
+            
+                <td class=" killed" >KILLED</td>
+            </tr>
+            
+            <tr>
+                <td>13</td>
+            
+                <td>Sum</td>
+            
+                <td>'Heli_inner_loop/Sum5'</td>
+            
+                <td>Inputs</td>
+            
+                <td>|+-</td>
+            
+                <td>|++</td>
+            
+                <td class=" killed" >KILLED</td>
+            </tr>
+            
+            <tr>
+                <td>14</td>
+            
+                <td>Sum</td>
+            
+                <td>'Heli_inner_loop/Sum6'</td>
+            
+                <td>Inputs</td>
+            
+                <td>|+-</td>
+            
+                <td>|-+</td>
+            
+                <td class=" killed" >KILLED</td>
+            </tr>
+            
+            <tr>
+                <td>15</td>
+            
+                <td>Sum</td>
+            
+                <td>'Heli_inner_loop/Sum6'</td>
+            
+                <td>Inputs</td>
+            
+                <td>|+-</td>
+            
+                <td>|--</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>16</td>
+            
+                <td>Sum</td>
+            
+                <td>'Heli_inner_loop/Sum6'</td>
+            
+                <td>Inputs</td>
+            
+                <td>|+-</td>
+            
+                <td>|++</td>
+            
+                <td class=" killed" >KILLED</td>
+            </tr>
+            
+            <tr>
+                <td>17</td>
+            
+                <td>Sum</td>
+            
+                <td>'Heli_outer_loop/Sum'</td>
+            
+                <td>Inputs</td>
+            
+                <td>|+-</td>
+            
+                <td>|-+</td>
+            
+                <td class=" killed" >KILLED</td>
+            </tr>
+            
+            <tr>
+                <td>18</td>
+            
+                <td>Sum</td>
+            
+                <td>'Heli_outer_loop/Sum'</td>
+            
+                <td>Inputs</td>
+            
+                <td>|+-</td>
+            
+                <td>|--</td>
+            
+                <td class=" killed" >KILLED</td>
+            </tr>
+            
+            <tr>
+                <td>19</td>
+            
+                <td>Sum</td>
+            
+                <td>'Heli_outer_loop/Sum'</td>
+            
+                <td>Inputs</td>
+            
+                <td>|+-</td>
+            
+                <td>|++</td>
+            
+                <td class=" killed" >KILLED</td>
+            </tr>
+            
+            <tr>
+                <td>20</td>
+            
+                <td>Sum</td>
+            
+                <td>'Heli_outer_loop/Sum1'</td>
+            
+                <td>Inputs</td>
+            
+                <td>|+-</td>
+            
+                <td>|-+</td>
+            
+                <td class=" killed" >KILLED</td>
+            </tr>
+            
+            <tr>
+                <td>21</td>
+            
+                <td>Sum</td>
+            
+                <td>'Heli_outer_loop/Sum1'</td>
+            
+                <td>Inputs</td>
+            
+                <td>|+-</td>
+            
+                <td>|--</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>22</td>
+            
+                <td>Sum</td>
+            
+                <td>'Heli_outer_loop/Sum1'</td>
+            
+                <td>Inputs</td>
+            
+                <td>|+-</td>
+            
+                <td>|++</td>
+            
+                <td class=" killed" >KILLED</td>
+            </tr>
+            
+            <tr>
+                <td>23</td>
+            
+                <td>Sum</td>
+            
+                <td>'Heli_outer_loop/Sum2'</td>
+            
+                <td>Inputs</td>
+            
+                <td>|+-</td>
+            
+                <td>|-+</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>24</td>
+            
+                <td>Sum</td>
+            
+                <td>'Heli_outer_loop/Sum2'</td>
+            
+                <td>Inputs</td>
+            
+                <td>|+-</td>
+            
+                <td>|--</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>25</td>
+            
+                <td>Sum</td>
+            
+                <td>'Heli_outer_loop/Sum2'</td>
+            
+                <td>Inputs</td>
+            
+                <td>|+-</td>
+            
+                <td>|++</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>26</td>
+            
+                <td>Sum</td>
+            
+                <td>'Heli_outer_loop/Sum3'</td>
+            
+                <td>Inputs</td>
+            
+                <td>|++</td>
+            
+                <td>|+-</td>
+            
+                <td class=" killed" >KILLED</td>
+            </tr>
+            
+            <tr>
+                <td>27</td>
+            
+                <td>Sum</td>
+            
+                <td>'Heli_outer_loop/Sum3'</td>
+            
+                <td>Inputs</td>
+            
+                <td>|++</td>
+            
+                <td>|-+</td>
+            
+                <td class=" killed" >KILLED</td>
+            </tr>
+            
+            <tr>
+                <td>28</td>
+            
+                <td>Sum</td>
+            
+                <td>'Heli_outer_loop/Sum3'</td>
+            
+                <td>Inputs</td>
+            
+                <td>|++</td>
+            
+                <td>|--</td>
+            
+                <td class=" killed" >KILLED</td>
+            </tr>
+            
+            <tr>
+                <td>29</td>
+            
+                <td>Sum</td>
+            
+                <td>'Heli_outer_loop/Sum4'</td>
+            
+                <td>Inputs</td>
+            
+                <td>|++</td>
+            
+                <td>|+-</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>30</td>
+            
+                <td>Sum</td>
+            
+                <td>'Heli_outer_loop/Sum4'</td>
+            
+                <td>Inputs</td>
+            
+                <td>|++</td>
+            
+                <td>|-+</td>
+            
+                <td class=" killed" >KILLED</td>
+            </tr>
+            
+            <tr>
+                <td>31</td>
+            
+                <td>Sum</td>
+            
+                <td>'Heli_outer_loop/Sum4'</td>
+            
+                <td>Inputs</td>
+            
+                <td>|++</td>
+            
+                <td>|--</td>
+            
+                <td class=" killed" >KILLED</td>
+            </tr>
+            
+            <tr>
+                <td>32</td>
+            
+                <td>Sum</td>
+            
+                <td>'Heli_outer_loop/Sum5'</td>
+            
+                <td>Inputs</td>
+            
+                <td>|++</td>
+            
+                <td>|+-</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>33</td>
+            
+                <td>Sum</td>
+            
+                <td>'Heli_outer_loop/Sum5'</td>
+            
+                <td>Inputs</td>
+            
+                <td>|++</td>
+            
+                <td>|-+</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>34</td>
+            
+                <td>Sum</td>
+            
+                <td>'Heli_outer_loop/Sum5'</td>
+            
+                <td>Inputs</td>
+            
+                <td>|++</td>
+            
+                <td>|--</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>35</td>
+            
+                <td>Switch</td>
+            
+                <td>'AHRS_voter/Avg_Value/Switch'</td>
+            
+                <td>Criteria</td>
+            
+                <td>u2 ~= 0</td>
+            
+                <td>u2 >= Threshold</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>36</td>
+            
+                <td>Switch</td>
+            
+                <td>'AHRS_voter/Avg_Value/Switch1'</td>
+            
+                <td>Criteria</td>
+            
+                <td>u2 ~= 0</td>
+            
+                <td>u2 >= Threshold</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>37</td>
+            
+                <td>Switch</td>
+            
+                <td>'AHRS_voter/Avg_Value/Switch2'</td>
+            
+                <td>Criteria</td>
+            
+                <td>u2 ~= 0</td>
+            
+                <td>u2 >= Threshold</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>38</td>
+            
+                <td>Switch</td>
+            
+                <td>'AHRS_voter/Single_Value/Switch'</td>
+            
+                <td>Criteria</td>
+            
+                <td>u2 ~= 0</td>
+            
+                <td>u2 >= Threshold</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>39</td>
+            
+                <td>Switch</td>
+            
+                <td>'AHRS_voter/Single_Value/Switch1'</td>
+            
+                <td>Criteria</td>
+            
+                <td>u2 ~= 0</td>
+            
+                <td>u2 >= Threshold</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>40</td>
+            
+                <td>Switch</td>
+            
+                <td>'AHRS_voter/Single_Value/Switch2'</td>
+            
+                <td>Criteria</td>
+            
+                <td>u2 ~= 0</td>
+            
+                <td>u2 >= Threshold</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>41</td>
+            
+                <td>Switch</td>
+            
+                <td>'AHRS_voter/Avg_Value/Switch'</td>
+            
+                <td>Threshold</td>
+            
+                <td>0</td>
+            
+                <td>10</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>42</td>
+            
+                <td>Switch</td>
+            
+                <td>'AHRS_voter/Avg_Value/Switch1'</td>
+            
+                <td>Threshold</td>
+            
+                <td>0</td>
+            
+                <td>10</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>43</td>
+            
+                <td>Switch</td>
+            
+                <td>'AHRS_voter/Avg_Value/Switch2'</td>
+            
+                <td>Threshold</td>
+            
+                <td>0</td>
+            
+                <td>10</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>44</td>
+            
+                <td>Switch</td>
+            
+                <td>'AHRS_voter/Single_Value/Switch'</td>
+            
+                <td>Threshold</td>
+            
+                <td>0</td>
+            
+                <td>10</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>45</td>
+            
+                <td>Switch</td>
+            
+                <td>'AHRS_voter/Single_Value/Switch1'</td>
+            
+                <td>Threshold</td>
+            
+                <td>0</td>
+            
+                <td>10</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>46</td>
+            
+                <td>Switch</td>
+            
+                <td>'AHRS_voter/Single_Value/Switch2'</td>
+            
+                <td>Threshold</td>
+            
+                <td>0</td>
+            
+                <td>10</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>47</td>
+            
+                <td>Constant</td>
+            
+                <td>'AHRS_Sensor/psi'</td>
+            
+                <td>Value</td>
+            
+                <td>0</td>
+            
+                <td>1</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>48</td>
+            
+                <td>Constant</td>
+            
+                <td>'AHRS_Sensor/psi'</td>
+            
+                <td>Value</td>
+            
+                <td>0</td>
+            
+                <td>10</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>49</td>
+            
+                <td>Constant</td>
+            
+                <td>'AHRS_Sensor/psi'</td>
+            
+                <td>Value</td>
+            
+                <td>0</td>
+            
+                <td>100</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>50</td>
+            
+                <td>Constant</td>
+            
+                <td>'AHRS_Sensor/psi'</td>
+            
+                <td>Value</td>
+            
+                <td>0</td>
+            
+                <td>-1</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>51</td>
+            
+                <td>Constant</td>
+            
+                <td>'AHRS_Sensor/psi'</td>
+            
+                <td>Value</td>
+            
+                <td>0</td>
+            
+                <td>-10</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>52</td>
+            
+                <td>Constant</td>
+            
+                <td>'AHRS_Sensor/psi'</td>
+            
+                <td>Value</td>
+            
+                <td>0</td>
+            
+                <td>-100</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>53</td>
+            
+                <td>Constant</td>
+            
+                <td>'AHRS_Sensor/valid'</td>
+            
+                <td>Value</td>
+            
+                <td>1</td>
+            
+                <td>2</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>54</td>
+            
+                <td>Constant</td>
+            
+                <td>'AHRS_Sensor/valid'</td>
+            
+                <td>Value</td>
+            
+                <td>1</td>
+            
+                <td>11</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>55</td>
+            
+                <td>Constant</td>
+            
+                <td>'AHRS_Sensor/valid'</td>
+            
+                <td>Value</td>
+            
+                <td>1</td>
+            
+                <td>101</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>56</td>
+            
+                <td>Constant</td>
+            
+                <td>'AHRS_Sensor/valid'</td>
+            
+                <td>Value</td>
+            
+                <td>1</td>
+            
+                <td>0</td>
+            
+                <td class=" killed" >KILLED</td>
+            </tr>
+            
+            <tr>
+                <td>57</td>
+            
+                <td>Constant</td>
+            
+                <td>'AHRS_Sensor/valid'</td>
+            
+                <td>Value</td>
+            
+                <td>1</td>
+            
+                <td>-9</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>58</td>
+            
+                <td>Constant</td>
+            
+                <td>'AHRS_Sensor/valid'</td>
+            
+                <td>Value</td>
+            
+                <td>1</td>
+            
+                <td>-99</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>59</td>
+            
+                <td>Constant</td>
+            
+                <td>'actuator/Power Unit/Pump\nSpeed'</td>
+            
+                <td>Value</td>
+            
+                <td>188</td>
+            
+                <td>189</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>60</td>
+            
+                <td>Constant</td>
+            
+                <td>'actuator/Power Unit/Pump\nSpeed'</td>
+            
+                <td>Value</td>
+            
+                <td>188</td>
+            
+                <td>198</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>61</td>
+            
+                <td>Constant</td>
+            
+                <td>'actuator/Power Unit/Pump\nSpeed'</td>
+            
+                <td>Value</td>
+            
+                <td>188</td>
+            
+                <td>288</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>62</td>
+            
+                <td>Constant</td>
+            
+                <td>'actuator/Power Unit/Pump\nSpeed'</td>
+            
+                <td>Value</td>
+            
+                <td>188</td>
+            
+                <td>187</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>63</td>
+            
+                <td>Constant</td>
+            
+                <td>'actuator/Power Unit/Pump\nSpeed'</td>
+            
+                <td>Value</td>
+            
+                <td>188</td>
+            
+                <td>178</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>64</td>
+            
+                <td>Constant</td>
+            
+                <td>'actuator/Power Unit/Pump\nSpeed'</td>
+            
+                <td>Value</td>
+            
+                <td>188</td>
+            
+                <td>88</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>65</td>
+            
+                <td>Constant</td>
+            
+                <td>'actuator/zero offset'</td>
+            
+                <td>Value</td>
+            
+                <td>0.1</td>
+            
+                <td>1.1</td>
+            
+                <td class=" killed" >KILLED</td>
+            </tr>
+            
+            <tr>
+                <td>66</td>
+            
+                <td>Constant</td>
+            
+                <td>'actuator/zero offset'</td>
+            
+                <td>Value</td>
+            
+                <td>0.1</td>
+            
+                <td>10.1</td>
+            
+                <td class=" killed" >KILLED</td>
+            </tr>
+            
+            <tr>
+                <td>67</td>
+            
+                <td>Constant</td>
+            
+                <td>'actuator/zero offset'</td>
+            
+                <td>Value</td>
+            
+                <td>0.1</td>
+            
+                <td>100.1</td>
+            
+                <td class=" killed" >KILLED</td>
+            </tr>
+            
+            <tr>
+                <td>68</td>
+            
+                <td>Constant</td>
+            
+                <td>'actuator/zero offset'</td>
+            
+                <td>Value</td>
+            
+                <td>0.1</td>
+            
+                <td>-0.9</td>
+            
+                <td class=" killed" >KILLED</td>
+            </tr>
+            
+            <tr>
+                <td>69</td>
+            
+                <td>Constant</td>
+            
+                <td>'actuator/zero offset'</td>
+            
+                <td>Value</td>
+            
+                <td>0.1</td>
+            
+                <td>-9.9</td>
+            
+                <td class=" killed" >KILLED</td>
+            </tr>
+            
+            <tr>
+                <td>70</td>
+            
+                <td>Constant</td>
+            
+                <td>'actuator/zero offset'</td>
+            
+                <td>Value</td>
+            
+                <td>0.1</td>
+            
+                <td>-99.9</td>
+            
+                <td class=" killed" >KILLED</td>
+            </tr>
+            
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h2>Excluded Paths</h2>
+          <table class="table table-bordered" id="ExcludedPaths">
+            <thead>
+              <tr>
+                <th>Excluded Paths</th>
+              </tr>
+            </thead>
+            <tbody>
+            
+            </tbody>
+          </table>
+        </div>
+      </div>
+       <div class="row">
+        <div class="col-12">
+          <h2>Excluded Mutants</h2>
+          <table class="table table-bordered" id="ExcludedBlocks">
+            <thead>
+              <tr>
+                <th>Excluded Mutants</th>
+              </tr>
+            </thead>
+            <tbody>
+            
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    
+    <script>
+        var perBeforeLabel = (c) => "%"+(c.raw.percentageValue).toFixed(0)
+        var realBeforeLabel = (c) => c.raw.realValue
+        var total_counts_by_types = {'MinMax': 4, 'Sum': 30, 'Switch': 12, 'Constant': 24}
+        const myChart = new Chart(document.getElementById('columnchart'),{
+          type: 'bar',
+          data: {'labels': ['MinMax', 'Sum', 'Switch', 'Constant'], 'datasets': [{'label': 'Killed', 'data': [{'id': 'MinMax', 'realValue': 0, 'percentageValue': 0.0}, {'id': 'Sum', 'realValue': 21, 'percentageValue': 70.0}, {'id': 'Switch', 'realValue': 0, 'percentageValue': 0.0}, {'id': 'Constant', 'realValue': 7, 'percentageValue': 29.166666666666668}], 'stack': 0, 'backgroundColor': 'green'}, {'label': 'Survived', 'data': [{'id': 'MinMax', 'realValue': 4, 'percentageValue': 100.0}, {'id': 'Sum', 'realValue': 9, 'percentageValue': 30.0}, {'id': 'Switch', 'realValue': 12, 'percentageValue': 100.0}, {'id': 'Constant', 'realValue': 17, 'percentageValue': 70.83333333333333}], 'stack': 0, 'backgroundColor': 'red'}]},
+          options: {
+          indexAxis: 'y',
+            plugins: {
+              tooltip: {
+                callbacks: {
+                    beforeLabel: perBeforeLabel,
+                    label: (c) => (c.raw.percentageValue == c.formattedValue) ? "%" + (c.raw.percentageValue).toFixed(0) : c.formattedValue
+                }
+              },
+              title: {
+                display: true,
+                text: 'Mutant Based Info by Block Type'
+              },
+            },
+            responsive: true,
+            scales: {
+              x: {
+                stacked: true,
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Mutant Count',
+                }
+              },
+              y: {
+                stacked: true
+              }
+            },
+            parsing: {
+              yAxisKey: 'id',
+              xAxisKey: 'realValue'
+            }
+          }
+        });
+        
+        function switchModeMyChart(){
+            if(myChart.config.options.parsing.xAxisKey == "realValue"){
+                myChart.config.options.parsing.xAxisKey = "percentageValue"
+                myChart.config.options.plugins.tooltip.callbacks.beforeLabel = realBeforeLabel
+                myChart.config.options.scales.x.ticks = {
+                    callback: function (value) {
+                      return value + '%'; // convert it to percentage
+                    },
+                  }
+                myChart.config.options.scales.x.scaleLabel.labelString = "Percentage"
+            }else{
+                myChart.config.options.scales.x.ticks = undefined
+                myChart.config.options.parsing.xAxisKey = "realValue"
+                myChart.config.options.plugins.tooltip.callbacks.beforeLabel = perBeforeLabel
+                myChart.config.options.scales.x.scaleLabel.labelString = "Mutant Count"
+            }
+            myChart.update()
+        }
+    </script>
+  </body>
+</html>
