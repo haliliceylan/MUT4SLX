@@ -32,7 +32,7 @@ optional arguments:
 ### Prerequisites
 
 - MATLAB [version R2021b](https://nl.mathworks.com/products/matlab.html)
-- Python [version 3.7.8](https://www.python.org/downloads/)
+- Python [version 3.9.16](https://www.python.org/downloads/)
 - Libraries: [matlab.engine](https://www.mathworks.com/help/matlab/matlab-engine-for-python.html)
 
 ### Installation
