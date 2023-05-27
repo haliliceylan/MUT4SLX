@@ -45,6 +45,77 @@ optional arguments:
 2. Run the main script: `python MUT4SLX.py --model MODEL`
 3. View the generated CSV output: `open <model_name>.CSV`
 
+
+## Configuration File
+
+The configuration file specifies various settings and parameters for using the MUT4SLX tool. It includes a list of mutant operators and configurations for different Simulink models. Let's break down each part of the configuration file:
+
+### Mutant Operators
+The `mutant_operators` section lists the available mutant operators. These operators are abbreviated with short names for convenience. Here are the mutant operators included in the configuration file:
+
+- `ROR`: Relational Operator Replacement
+- `LOR`: Logical Operator Replacement
+- `ASR`: Arithmetic Sign Replacement
+- `MMR`: Min-Max Replacement
+- `ICR`: If Condition Replacement
+- `TOR`: Trigonometric Operator Replacement
+- `MOR`: Math Operator Replacement
+- `PMR`: Product Multiplication Replacement
+- `POR`: Product Operator Replacement
+- `FIR`: For Index Replacement
+- `FLR`: For Limit Replacement
+- `UDO`: Unit Delay Operation
+- `SCR`: Switch Criteria Replacement
+- `STR`: Switch Threshold Replacement
+- `CR` : Constant Replacement
+
+```json
+{
+  "mutant_operators": [
+    "ROR",
+    "LOR",
+    "ASR",
+    "MMR",
+    "ICR",
+    "TOR",
+    "MOR",
+    "PMR",
+    "POR",
+    "FIR",
+    "FLR",
+    "UDO",
+    "SCR",
+    "STR",
+    "CR"
+  ],
+```
+
+These operators are used during the mutation process to generate modified versions of the Simulink models for testing.
+
+### Model Configurations
+The configuration file provides settings for different Simulink models. Each model has a unique key, which is used as a reference for specifying the model when running the mutation testing tool. Here are the model configurations included in the file:
+
+The "Heli" section represents a specific configuration for the "Helicopter Control System" Simulink model. The attributes within this section are:
+
+```json
+  "Heli": {
+    "model": "HelicopterSystem",
+    "cd": "matlab_workspace/heli",
+    "project": "heli.prj",
+    "system": "HelicopterSystem",
+    "test": "HeliLoopTest"
+  },
+```
+- `model`: Specifies the main Simulink model to start the mutation process, in this case, "HelicopterSystem."
+- `cd`: Indicates the relative path of the project directory where the Simulink model is located. It is generally found under the "matlab_workspace" directory with the "heli" subdirectory.
+- `project`: If the Simulink model depends on a MATLAB project, you can specify the project file using this attribute. In this case, it is "heli.prj."
+- `system`: Specifies the system name of the main model. It can also accept a full path, allowing the mutation process to start from that path and explore its sub-paths.
+- `test`: Currently, this attribute is not usable in the current version. However, you can refer to the demo for the full behavior. It represents the test file name for this Simulink model.
+
+Similarly, the configuration sections for other Simulink models like "sf_aircraft," "Aircraft," and "AutotransModel" follow a similar structure, specifying their respective models, directories, systems, and test files if applicable.
+
+**Please note that the actual values used in the configuration file, such as model names and paths, are examples provided for demonstration purposes. You should replace them with the appropriate values based on your specific Simulink projects and file structures.**
+
 ## File Structure
 
 - `MUT4SLX.py`: This is the main script for performing mutant generation and provides a command-line interface for the tool.
