@@ -47,10 +47,19 @@ optional arguments:
 
 ## File Structure
 
-- `MUT4SLX.py`: Main script for performing mutant generation.
-- `model_files.json`: Configuration file specifying the models and their details.
-- `HelicopterSystem.html`: [Open In Browser](https://rawcdn.githack.com/haliliceylan/MUT4SLX/4d3d570a058c539d058ae933ef03fac2bd6cdd7b/HelicopterSystem.html)
-- Other supporting files and directories.
+- `MUT4SLX.py`: This is the main script for performing mutant generation and provides a command-line interface for the tool.
+- `model_files.json`: This configuration file specifies the models and their details required to run the MUT4SLX tool.
+- `matlab_workspace/`: This directory contains all MATLAB models and related files.
+- `HelicopterSystem.html`: This is a detailed report on the execution of the Helicopter System mutants. Please note that the code used to generate this report is not open-sourced yet. [Open Report In Browser](https://rawcdn.githack.com/haliliceylan/MUT4SLX/4d3d570a058c539d058ae933ef03fac2bd6cdd7b/HelicopterSystem.html)
+- `HelicopterSystem_mutants.csv`: This CSV file contains information about all the possible mutants generated for the Helicopter System.
+- `LICENSE`: This file contains the license information for the repository.
+- `MutationClasses.py`: This file contains the implementation of all mutant operators used by the tool.
+- `README.md`: This file, which you are currently reading, provides detailed information about the repository.
+- `Replication-Package.md`: This file contains information about the replication package for the project.
+- `config_reader.py`: This file includes the implementation of the configuration reader class.
+- `.gitignore`: This file specifies the files and directories that should be ignored by the Git version control system.
+
+Other supporting files and directories may be present as well.
 
 ## Example Use Cases
 
