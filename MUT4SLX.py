@@ -4,8 +4,6 @@ import json
 import argparse
 import matlab.engine
 from time import perf_counter, sleep
-from colorama import Fore, Back, Style
-from jinja2 import Template
 from MutationClasses import (
     MutationApplier
 )

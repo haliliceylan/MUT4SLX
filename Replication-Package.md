@@ -82,26 +82,12 @@ Feel free to explore the documentation for further details: [Matlab Documentatio
 **Please note that you may need administrator privileges to execute some of the commands, depending on your operating system configuration.**
 
   
-### Cloning Project and Installing Dependencies
+### Cloning Project 
 1. Clone the repository: Open a command prompt or terminal and run the following command:
     ```bash
     git clone https://github.com/haliliceylan/MUT4SLX.git
     ```
     This command will clone the repository and download the project files to your local machine.
-2. Install the required libraries: Navigate to the project directory by running the following command:
-
-    ```bash
-    cd MUT4SLX
-    ```
-    Then, install the necessary libraries by executing the following command:
-
-    Copy code
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-    This command will install all the dependencies listed in the requirements.txt file, ensuring that your environment has all the required packages to run the project successfully.
-
 ## Usage
 To use the project, run the following command from the project directory:
 
