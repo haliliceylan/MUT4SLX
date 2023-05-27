@@ -14,6 +14,7 @@ The Simulink Model Mutation Testing project provides a framework for generating 
 
 - Mutant generation: Apply a set of predefined mutation operators to the Simulink model.
 - CVS output generation: Generate an CSV output summarizing the mutations.
+- HTML Report: Please note that the code used to generate this report is not open-sourced yet. [Open Report In Browser](https://rawcdn.githack.com/haliliceylan/MUT4SLX/4d3d570a058c539d058ae933ef03fac2bd6cdd7b/HelicopterSystem.html)
 
 ## Getting Started
 
