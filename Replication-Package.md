@@ -1,59 +1,119 @@
-# MUT4SLX: Fast Mutant Generation for Simulink
+# MUT4SLX: Fast Mutant Generation for Simulink : Replication Package
 
 This is the replication package for the paper: MUT4SLX: Fast Mutant Generation for Simulink.
 
-MUT4SLX tool focuses on performing mutation testing on a model implemented in MATLAB/Simulink. It applies various mutation operators to the model and generates Simulink model mutants.
+## Preparation Step
 
-## Description
+### Install MATLAB R2021b:
 
-The Simulink Model Mutation Testing project provides a framework for generating mutants, and analyzing the results. It utilizes the MATLAB environment to load the model, apply mutations, and collect outputs.
+1. Visit the MathWorks website (https://www.mathworks.com) and download the **MATLAB R2021b** installer appropriate for your operating system.
+2. Run the installer and follow the on-screen instructions to install MATLAB on your computer.
+3. Activate MATLAB using your MathWorks account or the provided license key.
+4. During the installation process, you will be presented with different installation options. Select the "Custom" installation option to choose specific packages to install.
+    - Simulink
+    - Control System Toolbox
+    - Embedded Coder
+    - MATLAB Coder
+    - MATLAB Report Generator
+    - Polyspace Bug Finder
+    - Polyspace Code Prover
+    - Requirements Toolbox
+    - Robust Control Toolbox
+    - Simscape
+    - Simscape Fluids
+    - Simulink Check
+    - Simulink Code Inspector
+    - Simulink Coder
+    - Simulink Control Design
+    - Simulink Coverage
+    - Simulink Design Verifier
+    - Simulink Report Generator
+    - Simulink Test
+    - System Composer
 
-## Features
+**Please note that the availability of specific packages may depend on the type of license you have or the edition of MATLAB you are installing. Ensure that you have the necessary licenses or access rights to install and use the additional packages.**
 
-- Mutation generation: Apply a set of predefined mutation operators to the model.
-- CVS output generation: Generate an CSV output summarizing the mutations.
-## Getting Started
+### Install Python 3.9.16:
 
+Visit the official Python website (https://www.python.org/downloads/) and download the Python 3.9.16 installer for your operating system.
+Run the installer and follow the installation wizard.
+**Make sure to select the option to add Python to the system PATH during** the installation process. This will make it easier to run Python from the command line.
+
+### Installing Python Matlab Engine API
+
+To install the `matlab.engine` for Python, you can follow these steps:
+
+1. Start MATLAB and obtain the MATLAB root folder path by typing matlabroot in the MATLAB command window. Take note of the returned path.
+
+2. Open a command prompt or terminal on your operating system.
+    Navigate to the MATLAB Python engine folder corresponding to your operating system:
+    
+    On Windows:
+    ```bash
+    cd "<matlabroot>\extern\engines\python"
+    ```
+    Replace <matlabroot> with the MATLAB root folder path obtained in step 1.
+
+    On Linux:
+    ```bash
+    cd "<matlabroot>/extern/engines/python"
+    ```
+    Replace <matlabroot> with the MATLAB root folder path obtained in step 1.
+
+    On macOS:
+    ```bash
+    cd "<matlabroot>/extern/engines/python"
+    ```
+    Replace <matlabroot> with the MATLAB root folder path obtained in step 1.
+
+3. Run the following command to install the MATLAB Engine API for Python:
+
+    ```bash
+    python setup.py install
+    ```
+    This command will install the matlab.engine module for Python.
+
+Wait for the installation process to complete. Once finished, you should see a message indicating successful installation.
+
+The `matlab.engine` module allows you to call MATLAB functions and execute MATLAB code from Python. After installing the MATLAB Engine API for Python, you can use the matlab.engine module in your Python scripts to interact with MATLAB.
+
+Feel free to explore the documentation for further details: [Matlab Documentation](https://www.mathworks.com/help/matlab/matlab-engine-for-python.html)
+
+**Please note that you may need administrator privileges to execute some of the commands, depending on your operating system configuration.**
+
+  
+### Cloning Project and Installing Dependencies
+1. Clone the repository: Open a command prompt or terminal and run the following command:
+    ```bash
+    git clone https://github.com/haliliceylan/MUT4SLX.git
+    ```
+    This command will clone the repository and download the project files to your local machine.
+2. Install the required libraries: Navigate to the project directory by running the following command:
+
+    ```bash
+    cd MUT4SLX
+    ```
+    Then, install the necessary libraries by executing the following command:
+
+    Copy code
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+    This command will install all the dependencies listed in the requirements.txt file, ensuring that your environment has all the required packages to run the project successfully.
+
+## Usage
+To use the project, run the following command from the project directory:
+
+```bash
+python MUT4SLX.py --model Heli
 ```
-usage: MUT4SLX.py [-h] --model MODEL [--matlab-gui]
+This command will execute the MUT4SLX.py script with the --model argument set to Heli. Adjust the value of --model to the specific model you want to use. This command will initiate the execution of the project, performing the necessary operations based on the specified model.
+Other possible commands to run:
+- `python MUT4SLX.py --model sf_aircraft`
+- `python MUT4SLX.py --model Aircraft`
+- `python MUT4SLX.py --model AutotransModel`
 
-Simulink model mutation tool.
+Make sure you have MATLAB and the MATLAB Engine API for Python properly installed, as mentioned earlier, to ensure the successful execution of the project.
 
-optional arguments:
-  -h, --help     show this help message and exit
-  --model MODEL  Name of the Simulink model in config file.
-  --matlab-gui   Show the MATLAB GUI.
-```
-
-### Prerequisites
-
-- MATLAB [version R2021b](https://nl.mathworks.com/products/matlab.html)
-- Python [version 3.9.16](https://www.python.org/downloads/)
-- Libraries: [matlab.engine](https://www.mathworks.com/help/matlab/matlab-engine-for-python.html)
-
-### Installation
-
-1. Clone the repository: `git clone https://github.com/haliliceylan/MUT4SLX.git`
-2. Install the required libraries: `pip install -r requirements.txt`
-
-### Usage
-
-1. Modify the `model_files.json` file to specify the models and their configurations.
-2. Run the main script: `python MUT4SLX.py --model MODEL`
-3. View the generated CSV output: `open <model_name>.CSV`
-
-## File Structure
-
-- `MUT4SLX.py`: Main script for performing mutant generation.
-- `model_files.json`: Configuration file specifying the models and their details.
-- Other supporting files and directories.
-
-## Example Use Cases
-
-### Example use case with Helicopter Control System
-(https://github.com/wfpotter/DO178_Case_Study)
-### Example use case with Aircraft Elevator Control System
-(https://gitlab.com/DrishtiYadav/fimtool/-/tree/main/Aircraft_fault_injector/sf_aircraft_model)
-### Example use case with Automatic Transmission Controller System
-(https://gitlab.com/DrishtiYadav/fimtool/-/tree/main/Autotrans_fault_injector/cav_benchmark)
-
+Feel free to explore the cloned repository for more details on the project, including additional usage options, configuration settings.
