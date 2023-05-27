@@ -49,6 +49,7 @@ optional arguments:
 
 - `MUT4SLX.py`: Main script for performing mutant generation.
 - `model_files.json`: Configuration file specifying the models and their details.
+- `HelicopterSystem.html`: [Open In Browser](https://rawcdn.githack.com/haliliceylan/MUT4SLX/4d3d570a058c539d058ae933ef03fac2bd6cdd7b/HelicopterSystem.html)
 - Other supporting files and directories.
 
 ## Example Use Cases
