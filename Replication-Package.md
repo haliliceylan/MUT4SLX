@@ -43,7 +43,7 @@ Run the installer and follow the installation wizard.
 
 To install the `matlab.engine` for Python, you can follow these steps:
 
-1. Start MATLAB and obtain the MATLAB root folder path by typing matlabroot in the MATLAB command window. Take note of the returned path.
+1. Start MATLAB and obtain the MATLAB root folder path by typing `matlabroot in the MATLAB command window. Take note of the returned path.
 
 2. Open a command prompt or terminal on your operating system.
     Navigate to the MATLAB Python engine folder corresponding to your operating system:
