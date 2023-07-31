@@ -54,9 +54,16 @@ The configuration file specifies various settings and parameters for using the M
 The `mutant_operators` section lists the available mutant operators. These operators are abbreviated with short names for convenience. Here are the mutant operators included in the configuration file:
 
 - `ROR`: Relational Operator Replacement
+Please refer (https://nl.mathworks.com/help/simulink/slref/relationaloperator.html) to the definition of the relational operators in Matlab/Simulink.
+The ROR operator changes the current value of the block with other different operators, such as changing "==" with "~=, <, <=, >=, >" operators.
 - `LOR`: Logical Operator Replacement
+Please refer (https://nl.mathworks.com/help/simulink/slref/logicaloperator.html) to the definition of the logical operators in Matlab/Simulink.
+The LOR operator changes the block's current value with other different operators, such as changing "AND" with "OR, NAND, NOR, XOR" operators.
 - `ASR`: Arithmetic Sign Replacement
+
 - `MMR`: Min-Max Replacement
+Please refer (https://nl.mathworks.com/help/simulink/slref/minmax.html) to the definition of the logical operators in Matlab/Simulink.
+The MMR operator changes the block's current value with other operators, such as changing "MIN" with "MAX" operators.
 - `ICR`: If Condition Replacement
 - `TOR`: Trigonometric Operator Replacement
 - `MOR`: Math Operator Replacement
