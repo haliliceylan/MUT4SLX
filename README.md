@@ -60,21 +60,45 @@ The ROR operator changes the current value of the block with other different ope
 Please refer (https://nl.mathworks.com/help/simulink/slref/logicaloperator.html) to the definition of the logical operators in Matlab/Simulink.
 The LOR operator changes the block's current value with other different operators, such as changing "AND" with "OR, NAND, NOR, XOR" operators.
 - `ASR`: Arithmetic Sign Replacement
-
+Please refer (https://nl.mathworks.com/help/matlab/relational-operators.html) to the definition of the relational operators in Matlab/Simulink.
+The ASR operator changes the block's current value with other different operators, such as changing "==" with "~=, <, <=, >=, >" operators.
 - `MMR`: Min-Max Replacement
 Please refer (https://nl.mathworks.com/help/simulink/slref/minmax.html) to the definition of the logical operators in Matlab/Simulink.
 The MMR operator changes the block's current value with other operators, such as changing "MIN" with "MAX" operators.
 - `ICR`: If Condition Replacement
+Please refer (https://nl.mathworks.com/help/simulink/slref/if.html) to the definition of the If condition operators in Matlab/Simulink.
+The ICR operator changes the block's current value with other operators, such as changing an if condition with "1 == 1 (true), 1 == 0 (false)" conditions.
 - `TOR`: Trigonometric Operator Replacement
+Please refer (https://nl.mathworks.com/help/simulink/slref/trigonometricfunction.html) to the definition of the trigonometric operators in Matlab/Simulink.
+The TOR operator changes the block's current value with other operators, such as changing "sin" operator with "cos, tan, asin, acos , atan, sinh, 
+ cosh, tanh, asinh, acosh, atanh, cos + jsin" operators.
 - `MOR`: Math Operator Replacement
+Please refer (https://nl.mathworks.com/help/simulink/slref/mathfunction.html) to the definition of the Math operators in Matlab/Simulink.
+The MOR operator changes the block's current value with other operators, such as changing "exp" operator with "log, 10^u, log10, magnitude^2, square, conj, reciprocal, transpose, hermitian" operators.
 - `PMR`: Product Multiplication Replacement
+Please refer (https://nl.mathworks.com/help/simulink/slref/product.html) to the definition of the product multiplication types in Matlab/Simulink.
+The PMR operator changes the block's current value with other operators, such as changing "Element-wise(.*)" type with "Matrix(*)" type.
 - `POR`: Product Operator Replacement
+Please refer (https://nl.mathworks.com/help/simulink/slref/product.html) to the definition of the product block in Matlab/Simulink.
+The POR operator changes the block's current value with other operators, such as changing "2" input types with "*/, /*, //" types.
 - `FIR`: For Index Replacement
+Please refer (https://nl.mathworks.com/help/simulink/slref/foriterator.html) to the definition of the For iterator block in Matlab/Simulink.
+The FIR operator changes the block's current value with other operators, such as changing "Zero-based" type with "One-based" type.
 - `FLR`: For Limit Replacement
+Please refer (https://nl.mathworks.com/help/simulink/slref/foriterator.html) to the definition of the For iterator block in Matlab/Simulink.
+The FLR operator changes the block's current value with other operators, such as changing the current "x" limit value with "x*2" limit value.
 - `UDO`: Unit Delay Operation
+Please refer (https://nl.mathworks.com/help/simulink/slref/unitdelay.html) to the definition of the unit delay block in Matlab/Simulink.
+The UDO operator changes the block's current value with other operators, such as changing "Columns as channels (frame based)" value with "Elements as channels (sample based)" value.
 - `SCR`: Switch Criteria Replacement
+Please refer (https://nl.mathworks.com/help/simulink/slref/switch.html) to the definition of the switch block in Matlab/Simulink.
+The SCR operator changes the block's current value with other operators, such as changing "u2 >= Threshold" value with "u2 ~= 0" value.
 - `STR`: Switch Threshold Replacement
-- `CR` : Constant Replacement
+Please refer (https://nl.mathworks.com/help/simulink/slref/switch.html) to the definition of the switch block in Matlab/Simulink.
+The STR operator changes the block's current value with other operators, such as changing the current "x" threshold value with "x+10" value.
+- `CR`: Constant Replacement
+  Please refer (https://nl.mathworks.com/help/simulink/slref/constant.html) to the definition of the constant block in Matlab/Simulink.
+The CR operator changes the block's current value with other operators, such as changing the current "x" value with "x+1, x+10, x+100, x-1, x-10, x-100" values.
 
 ```json
 {
