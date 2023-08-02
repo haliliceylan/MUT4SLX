@@ -1,6 +1,6 @@
-# MUT4SLX: Fast Mutant Generation for Simulink : Replication Package
+# MUT4SLX: Fast Mutant Generation for Simulink: Reproduction Package
 
-This is the replication package for the paper: MUT4SLX: Fast Mutant Generation for Simulink.
+This is the reproduction package for the ASE 2023 paper: MUT4SLX: Fast Mutant Generation for Simulink.
 
 ## Preparation Step
 
@@ -82,7 +82,7 @@ Feel free to explore the documentation for further details: [Matlab Documentatio
 **Please note that you may need administrator privileges to execute some of the commands, depending on your operating system configuration.**
 
   
-### Cloning Project 
+### Cloning Project (v0.0.1) 
 1. Clone the repository: Open a command prompt or terminal and run the following command:
     ```bash
     git clone https://github.com/haliliceylan/MUT4SLX.git
