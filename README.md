@@ -80,7 +80,7 @@ Please refer (https://nl.mathworks.com/help/simulink/slref/product.html) to the 
 The PMR operator changes the block's current value with other operators, such as changing "Element-wise(.*)" type with "Matrix(*)" type.
 - `POR`: Product Operator Replacement
 Please refer (https://nl.mathworks.com/help/simulink/slref/product.html) to the definition of the product block in Matlab/Simulink.
-The POR operator changes the block's current value with other operators, such as changing "2" input types with "&ast/, /&ast, //" types.
+The POR operator changes the block's current value with other operators, such as changing "2" input types with "* /, / *, //" types.
 - `FIR`: For Index Replacement
 Please refer (https://nl.mathworks.com/help/simulink/slref/foriterator.html) to the definition of the For iterator block in Matlab/Simulink.
 The FIR operator changes the block's current value with other operators, such as changing "Zero-based" type with "One-based" type.
