@@ -82,7 +82,7 @@ Feel free to explore the documentation for further details: [Matlab Documentatio
 **Please note that you may need administrator privileges to execute some of the commands, depending on your operating system configuration.**
 
   
-### Cloning Project (v0.0.1) 
+### Cloning Project (v0.0.2) 
 1. Clone the repository: Open a command prompt or terminal and run the following command:
     ```bash
     git clone https://github.com/haliliceylan/MUT4SLX.git
