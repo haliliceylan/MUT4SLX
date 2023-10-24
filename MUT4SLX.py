@@ -43,7 +43,7 @@ matlab_gui = args.matlab_gui
 logging.info(f"Mutating Simulink model: {model_name}")
 
 logging.info("Launching/Attaching MATLAB engine...")
-eng = matlab.engine.connect_matlab()
+eng = matlab.engine.start_matlab()
 logging.info("Succesfully connected with MATLAB engine.")
 
 if matlab_gui:
