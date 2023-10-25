@@ -152,6 +152,7 @@ Similarly, the configuration sections for other Simulink models like "sf_aircraf
 - `MUT4SLX.py`: This is the main script for performing mutant generation and provides a command-line interface for the tool.
 - `model_files.json`: This configuration file specifies the models and their details required to run the MUT4SLX tool.
 - `matlab_workspace/`: This directory contains all MATLAB models and related files.
+- `tests/`: This directory contains the smoke tests for the tool.
 - `HelicopterSystem.html`: This is a detailed report on the execution of the Helicopter System mutants. Please note that the code used to generate this report is not open-sourced yet. [Open Report In Browser](https://rawcdn.githack.com/haliliceylan/MUT4SLX/4d3d570a058c539d058ae933ef03fac2bd6cdd7b/HelicopterSystem.html)
 - `HelicopterSystem_mutants.csv`: This CSV file contains information about all the possible mutants generated for the Helicopter System.
 - `LICENSE`: This file contains the license information for the repository.
@@ -167,7 +168,18 @@ Other supporting files and directories may be present as well.
 
 ### Example use case with Helicopter Control System
 (https://github.com/wfpotter/DO178_Case_Study)
+
 ### Example use case with Aircraft Elevator Control System
 (https://gitlab.com/DrishtiYadav/fimtool/-/tree/main/Aircraft_fault_injector/sf_aircraft_model)
+
 ### Example use case with Automatic Transmission Controller System
 (https://gitlab.com/DrishtiYadav/fimtool/-/tree/main/Autotrans_fault_injector/cav_benchmark)
+
+## Testing
+
+To run the tests for this project, you can use the following command:
+
+```
+make test # or pytest
+```
+
