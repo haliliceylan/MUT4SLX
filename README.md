@@ -16,6 +16,15 @@ The Simulink Model Mutation Testing project provides a framework for generating 
 - CVS output generation: Generate an CSV output summarizing the mutations.
 - HTML Report: Please note that the code used to generate this report is not open-sourced yet. [Open Report In Browser](https://rawcdn.githack.com/haliliceylan/MUT4SLX/4d3d570a058c539d058ae933ef03fac2bd6cdd7b/HelicopterSystem.html)
 
+## Licensing Information
+
+This repository contains code and assets under different licenses:
+Make sure to review the specific license for each part of the code. Additionally, check out the example use cases with different licenses:
+
+- [Helicopter Control System (BSD 3-Clause "New" or "Revised" License)](https://github.com/wfpotter/DO178_Case_Study/blob/master/license.txt) 
+- [Aircraft Elevator Control System (MIT License)](https://gitlab.com/DrishtiYadav/fimtool/-/blob/main/LICENSE)
+- [Automatic Transmission Controller System (MIT License)](https://gitlab.com/DrishtiYadav/fimtool/-/blob/main/LICENSE)
+
 ## Getting Started
 
 ```
