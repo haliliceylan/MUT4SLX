@@ -192,3 +192,6 @@ To run the tests for this project, you can use the following command:
 make test # or pytest
 ```
 
+# Cite This
+
+1. H. I. Ceylan, O. Kilincceker, M. Beyazit and S. Demeyer, "MUT4SLX: Fast Mutant Generation for Simulink," 2023 38th IEEE/ACM International Conference on Automated Software Engineering (ASE), Luxembourg, Luxembourg, 2023, pp. 2086-2089, doi: 10.1109/ASE56229.2023.00093.
