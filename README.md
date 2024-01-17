@@ -59,7 +59,7 @@ optional arguments:
 
 The configuration file specifies various settings and parameters for using the MUT4SLX tool. It includes a list of mutant operators and configurations for different Simulink models. Let's break down each part of the configuration file:
 
-### Mutant Operators
+### Mutant Operators For Simulink
 The `mutant_operators` section lists the available mutant operators. These operators are abbreviated with short names for convenience. Here are the mutant operators included in the configuration file:
 
 - `ROR`: Relational Operator Replacement
@@ -131,6 +131,33 @@ The CR operator changes the block's current value with other operators, such as 
 ```
 
 These operators are used during the mutation process to generate modified versions of the Simulink models for testing.
+
+### Mutant Operators For Stateflow
+Note: The Stateflow extension has not yet been included in the current version of MUT4SLX. We will release this version soon. However, a later version will include the following mutation operators for Stateflow models.
+- `LOI`: Logical Operation Iterator
+Please refer (https://nl.mathworks.com/help/stateflow/ug/operations-for-stateflow-data.html) to the definition of the logical operators in Matlab/Stateflow.
+The LOI operator changes the current value of the logical operator with another different operator, such as changing the "&&" with the "||" operator.
+- `ROI`: Relational Operation Iterator
+Please refer (https://nl.mathworks.com/help/stateflow/ug/operations-for-stateflow-data.html) to the definition of the relational operators in Matlab/Stateflow.
+The ROI operator changes the current value of the relational operator with other different operators, such as changing ">" with "<, >=, <=, ==, ~=" operators.
+- `BOI`: Bitwise Operation Iterator
+Please refer (https://nl.mathworks.com/help/stateflow/ug/operations-for-stateflow-data.html) to the definition of the relational operators in Matlab/Stateflow.
+The BOI operator changes the current value of the bitwise operator with other different operators, such as changing "&" with "|, ^, ~" operators.
+- `MOI`: Math Operation Iterator
+Please refer (https://nl.mathworks.com/help/stateflow/ug/operations-for-stateflow-data.html) to the definition of the relational operators in Matlab/Stateflow.
+The MOI operator changes the current value of the math operator with other different operators, such as changing "+" with "-, *, /" operators.
+- `NOI`: Non-bitwise Operation Iterator
+Please refer (https://nl.mathworks.com/help/stateflow/ug/operations-for-stateflow-data.html) to the definition of the relational operators in Matlab/Stateflow.
+The NOI operator changes the current value of the non-bitwise operator with an empty character, such as deleting "!" operator.
+- `CCI`: Control Chart Iterator
+Please refer (https://nl.mathworks.com/help/stateflow/ug/using-temporal-logic-in-state-actions-and-transitions.html) to the definition of the control charts in Matlab/Stateflow.
+The CCI operator changes the current value of the after operator in a control chart with other possible values, such as changing the current "x" value with "x+1, x+10, x+100, x-1, x-10, x-100" values.
+- `CDI`: Control chart Duration Iterator
+Please refer (https://nl.mathworks.com/help/stateflow/ug/using-temporal-logic-in-state-actions-and-transitions.html) to the definition of the control charts in Matlab/Stateflow.
+The CDI operator changes the current value of the duration operator in a control chart with other possible values, such as changing the current "x" value with "x+1, x+10, x+100, x-1, x-10, x-100" values.
+- `TOI`: Transition Order Iterator
+Please refer (https://nl.mathworks.com/help/stateflow/ug/execution-order-for-parallel-states.html) to the definition of the execution order in Matlab/Stateflow.
+The TOI operator changes the execution in a model with other possible orders, such as changing the current "1-2-3" value with "1-3-2, 2-3-1, 2-1-3, 3-1-2, 3-2-1" orders.
 
 ### Model Configurations
 The configuration file provides settings for different Simulink models. Each model has a unique key, which is used as a reference for specifying the model when running the mutation testing tool. Here are the model configurations included in the file:
