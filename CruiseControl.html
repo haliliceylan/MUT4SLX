@@ -1,0 +1,1422 @@
+<html>
+  <head>
+  <title>CruiseControl</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css">
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .survived {
+            background-color: red;
+        }
+        .killed {
+            background-color: green;
+        }
+    </style>
+    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('#generalResult').DataTable({
+          searching: true,
+          paging: false,
+          info: false
+        });
+        $('#allMutants').DataTable();
+        $('#ExcludedBlocks').DataTable();
+        $('#ExcludedPaths').DataTable();
+      });
+    </script>
+    <script>
+      google.charts.load('current', {
+        packages: ['corechart']
+      });
+      function drawPieChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['', ''],
+          ['Killed', 0],
+          ['Survived', 69] //first
+        ]);
+        var options = {
+          title: 'Mutation Score',
+          slices: {
+            0: {
+              color: 'green'
+            },
+            1: {
+              color: 'red'
+            }
+          },
+          pieStartAngle: 180,
+        };
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+      }
+      google.charts.setOnLoadCallback(drawPieChart);
+    </script>
+  </head>
+  <body>
+    <div class="container-fluid">
+    <center><h1>CruiseControl</h1></center>
+      <div class="row">
+        <div class="col-6" id="piechart"></div>
+        <div class="col-6 text-right">
+            <canvas height="200" id="columnchart"></canvas>
+            <button type="button" class="btn btn-primary btn-sm" onclick="switchModeMyChart()">Switch Mode</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h2>General Result</h2>
+          <table class="table table-bordered" id="generalResult">
+            <thead>
+              <tr>
+                <th>Block Type</th>
+                <th>Total Mutant</th>
+                <th>Survived Mutant</th>
+                <th>Killed Mutant</th>
+                <th>Mutant Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td>
+                  <b>Transition</b>
+                </td>
+                <td>64</td>
+                <td>64</td>
+                <td>0</td>
+                
+                    <td>%0.00</td>
+                
+
+              </tr>
+              
+              <tr>
+                <td>
+                  <b>State</b>
+                </td>
+                <td>5</td>
+                <td>5</td>
+                <td>0</td>
+                
+                    <td>%0.00</td>
+                
+
+              </tr>
+              
+              </tbody>
+              <tfoot>
+              <tr>
+                <td>
+                  <b>Total</b>
+                </td>
+                <td>
+                  <b>69</b>
+                </td>
+                <td>
+                  <b>69</b>
+                </td>
+                <td>
+                  <b>0</b>
+                </td>
+                <td>
+                  <b>%0.00</b>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+      <div class="p-4"></div>
+      <div class="row">
+        <div class="col-12">
+          <h2>All Mutants</h2>
+          <table class="table table-bordered" id="allMutants">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Block Type</th>
+                <th>Block</th>
+                <th>Parameter</th>
+                <th>Original</th>
+                <th>Mutant</th>
+                <th>Result</th>
+              </tr>
+            </thead>
+            <tbody>
+            
+            <tr>
+                <td>1</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON->STANDBY'</td>
+            
+                <td>LabelString</td>
+            
+                <td>ake||Speed> maxtspeed</td>
+            
+                <td>ake||Speed ==  maxtsp</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>2</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON->STANDBY'</td>
+            
+                <td>LabelString</td>
+            
+                <td>ake||Speed> maxtspeed</td>
+            
+                <td>ake||Speed ~=  maxtsp</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>3</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON->STANDBY'</td>
+            
+                <td>LabelString</td>
+            
+                <td>ake||Speed> maxtspeed</td>
+            
+                <td>ake||Speed >=  maxtsp</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>4</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON->STANDBY'</td>
+            
+                <td>LabelString</td>
+            
+                <td>ake||Speed> maxtspeed</td>
+            
+                <td>ake||Speed <=  maxtsp</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>5</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON->STANDBY'</td>
+            
+                <td>LabelString</td>
+            
+                <td>ake||Speed> maxtspeed</td>
+            
+                <td>ake||Speed <  maxtspe</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>6</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON->STANDBY'</td>
+            
+                <td>LabelString</td>
+            
+                <td>eed||Speed<mintspeed]</td>
+            
+                <td>eed||Speed == mintspe</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>7</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON->STANDBY'</td>
+            
+                <td>LabelString</td>
+            
+                <td>eed||Speed<mintspeed]</td>
+            
+                <td>eed||Speed ~= mintspe</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>8</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON->STANDBY'</td>
+            
+                <td>LabelString</td>
+            
+                <td>eed||Speed<mintspeed]</td>
+            
+                <td>eed||Speed >= mintspe</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>9</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON->STANDBY'</td>
+            
+                <td>LabelString</td>
+            
+                <td>eed||Speed<mintspeed]</td>
+            
+                <td>eed||Speed <= mintspe</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>10</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON->STANDBY'</td>
+            
+                <td>LabelString</td>
+            
+                <td>eed||Speed<mintspeed]</td>
+            
+                <td>eed||Speed > mintspee</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>11</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/STANDBY->Junction'</td>
+            
+                <td>LabelString</td>
+            
+                <td> ...
+Speed<=maxtspeed</td>
+            
+                <td> ...
+Speed == maxtspe</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>12</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/STANDBY->Junction'</td>
+            
+                <td>LabelString</td>
+            
+                <td> ...
+Speed<=maxtspeed</td>
+            
+                <td> ...
+Speed ~= maxtspe</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>13</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/STANDBY->Junction'</td>
+            
+                <td>LabelString</td>
+            
+                <td> ...
+Speed<=maxtspeed</td>
+            
+                <td> ...
+Speed >= maxtspe</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>14</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/STANDBY->Junction'</td>
+            
+                <td>LabelString</td>
+            
+                <td> ...
+Speed<=maxtspeed</td>
+            
+                <td> ...
+Speed < maxtspee</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>15</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/STANDBY->Junction'</td>
+            
+                <td>LabelString</td>
+            
+                <td> ...
+Speed<=maxtspeed</td>
+            
+                <td> ...
+Speed > maxtspee</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>16</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/STANDBY->Junction'</td>
+            
+                <td>LabelString</td>
+            
+                <td>... 
+Speed>=mintspeed</td>
+            
+                <td>... 
+Speed == mintspe</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>17</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/STANDBY->Junction'</td>
+            
+                <td>LabelString</td>
+            
+                <td>... 
+Speed>=mintspeed</td>
+            
+                <td>... 
+Speed ~= mintspe</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>18</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/STANDBY->Junction'</td>
+            
+                <td>LabelString</td>
+            
+                <td>... 
+Speed>=mintspeed</td>
+            
+                <td>... 
+Speed <= mintspe</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>19</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/STANDBY->Junction'</td>
+            
+                <td>LabelString</td>
+            
+                <td>... 
+Speed>=mintspeed</td>
+            
+                <td>... 
+Speed < mintspee</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>20</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/STANDBY->Junction'</td>
+            
+                <td>LabelString</td>
+            
+                <td>... 
+Speed>=mintspeed</td>
+            
+                <td>... 
+Speed > mintspee</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>21</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Steady->Accel'</td>
+            
+                <td>LabelString</td>
+            
+                <td>&& tspeed < maxtspeed</td>
+            
+                <td>&& tspeed  ==  maxtsp</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>22</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Steady->Accel'</td>
+            
+                <td>LabelString</td>
+            
+                <td>&& tspeed < maxtspeed</td>
+            
+                <td>&& tspeed  ~=  maxtsp</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>23</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Steady->Accel'</td>
+            
+                <td>LabelString</td>
+            
+                <td>&& tspeed < maxtspeed</td>
+            
+                <td>&& tspeed  >=  maxtsp</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>24</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Steady->Accel'</td>
+            
+                <td>LabelString</td>
+            
+                <td>&& tspeed < maxtspeed</td>
+            
+                <td>&& tspeed  <=  maxtsp</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>25</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Steady->Accel'</td>
+            
+                <td>LabelString</td>
+            
+                <td>&& tspeed < maxtspeed</td>
+            
+                <td>&& tspeed  >  maxtspe</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>26</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Accel->Steady'</td>
+            
+                <td>LabelString</td>
+            
+                <td>..
+tspeed > maxtspeed</td>
+            
+                <td>..
+tspeed  ==  maxtsp</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>27</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Accel->Steady'</td>
+            
+                <td>LabelString</td>
+            
+                <td>..
+tspeed > maxtspeed</td>
+            
+                <td>..
+tspeed  ~=  maxtsp</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>28</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Accel->Steady'</td>
+            
+                <td>LabelString</td>
+            
+                <td>..
+tspeed > maxtspeed</td>
+            
+                <td>..
+tspeed  >=  maxtsp</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>29</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Accel->Steady'</td>
+            
+                <td>LabelString</td>
+            
+                <td>..
+tspeed > maxtspeed</td>
+            
+                <td>..
+tspeed  <=  maxtsp</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>30</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Accel->Steady'</td>
+            
+                <td>LabelString</td>
+            
+                <td>..
+tspeed > maxtspeed</td>
+            
+                <td>..
+tspeed  <  maxtspe</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>31</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Steady->Coast'</td>
+            
+                <td>LabelString</td>
+            
+                <td>&& tspeed > mintspeed</td>
+            
+                <td>&& tspeed  ==  mintsp</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>32</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Steady->Coast'</td>
+            
+                <td>LabelString</td>
+            
+                <td>&& tspeed > mintspeed</td>
+            
+                <td>&& tspeed  ~=  mintsp</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>33</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Steady->Coast'</td>
+            
+                <td>LabelString</td>
+            
+                <td>&& tspeed > mintspeed</td>
+            
+                <td>&& tspeed  >=  mintsp</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>34</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Steady->Coast'</td>
+            
+                <td>LabelString</td>
+            
+                <td>&& tspeed > mintspeed</td>
+            
+                <td>&& tspeed  <=  mintsp</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>35</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Steady->Coast'</td>
+            
+                <td>LabelString</td>
+            
+                <td>&& tspeed > mintspeed</td>
+            
+                <td>&& tspeed  <  mintspe</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>36</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Coast->Steady'</td>
+            
+                <td>LabelString</td>
+            
+                <td>..
+tspeed < mintspeed</td>
+            
+                <td>..
+tspeed  ==  mintsp</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>37</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Coast->Steady'</td>
+            
+                <td>LabelString</td>
+            
+                <td>..
+tspeed < mintspeed</td>
+            
+                <td>..
+tspeed  ~=  mintsp</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>38</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Coast->Steady'</td>
+            
+                <td>LabelString</td>
+            
+                <td>..
+tspeed < mintspeed</td>
+            
+                <td>..
+tspeed  >=  mintsp</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>39</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Coast->Steady'</td>
+            
+                <td>LabelString</td>
+            
+                <td>..
+tspeed < mintspeed</td>
+            
+                <td>..
+tspeed  <=  mintsp</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>40</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Coast->Steady'</td>
+            
+                <td>LabelString</td>
+            
+                <td>..
+tspeed < mintspeed</td>
+            
+                <td>..
+tspeed  >  mintspe</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>41</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON->STANDBY'</td>
+            
+                <td>LabelString</td>
+            
+                <td>[Brake||Speed> ma</td>
+            
+                <td>[Brake && Speed> </td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>42</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON->STANDBY'</td>
+            
+                <td>LabelString</td>
+            
+                <td> maxtspeed||Speed<min</td>
+            
+                <td> maxtspeed && Speed<m</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>43</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/STANDBY->Junction'</td>
+            
+                <td>LabelString</td>
+            
+                <td>[~Brake && ...
+Spee</td>
+            
+                <td>[~Brake  ||  ...
+Sp</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>44</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/STANDBY->Junction'</td>
+            
+                <td>LabelString</td>
+            
+                <td>maxtspeed && ... 
+Spe</td>
+            
+                <td>maxtspeed  ||  ... 
+S</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>45</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/Junction->Steady'</td>
+            
+                <td>LabelString</td>
+            
+                <td>,true)...
+&&tspeed!=0</td>
+            
+                <td>,true)...
+ || tspeed!</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>46</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Steady->Accel'</td>
+            
+                <td>LabelString</td>
+            
+                <td>true) ...
+&& tspeed <</td>
+            
+                <td>true) ...
+ ||  tspeed</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>47</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Accel->Steady'</td>
+            
+                <td>LabelString</td>
+            
+                <td>ccelResSw || ...
+tspe</td>
+            
+                <td>ccelResSw  &&  ...
+ts</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>48</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Steady->Coast'</td>
+            
+                <td>LabelString</td>
+            
+                <td>true) ...
+&& tspeed ></td>
+            
+                <td>true) ...
+ ||  tspeed</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>49</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Coast->Steady'</td>
+            
+                <td>LabelString</td>
+            
+                <td>oastSetSw || ...
+tspe</td>
+            
+                <td>oastSetSw  &&  ...
+ts</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>50</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Junction->Junction'</td>
+            
+                <td>LabelString</td>
+            
+                <td>[after(10/holdrate..</td>
+            
+                <td>[after(10 + holdrate</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>51</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Junction->Junction'</td>
+            
+                <td>LabelString</td>
+            
+                <td>[after(10/holdrate..</td>
+            
+                <td>[after(10 - holdrate</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>52</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Junction->Junction'</td>
+            
+                <td>LabelString</td>
+            
+                <td>[after(10/holdrate..</td>
+            
+                <td>[after(10 * holdrate</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>53</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Junction->Junction'</td>
+            
+                <td>LabelString</td>
+            
+                <td>ldrate...
+*incdec,tic</td>
+            
+                <td>ldrate...
+ + incdec,t</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>54</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Junction->Junction'</td>
+            
+                <td>LabelString</td>
+            
+                <td>ldrate...
+*incdec,tic</td>
+            
+                <td>ldrate...
+ - incdec,t</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>55</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Junction->Junction'</td>
+            
+                <td>LabelString</td>
+            
+                <td>ldrate...
+*incdec,tic</td>
+            
+                <td>ldrate...
+ / incdec,t</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>56</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Junction->Junction'</td>
+            
+                <td>LabelString</td>
+            
+                <td>[after(10/holdrate..</td>
+            
+                <td>[after(10 + holdrate</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>57</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Junction->Junction'</td>
+            
+                <td>LabelString</td>
+            
+                <td>[after(10/holdrate..</td>
+            
+                <td>[after(10 - holdrate</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>58</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Junction->Junction'</td>
+            
+                <td>LabelString</td>
+            
+                <td>[after(10/holdrate..</td>
+            
+                <td>[after(10 * holdrate</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>59</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Junction->Junction'</td>
+            
+                <td>LabelString</td>
+            
+                <td>ldrate...
+*incdec,tic</td>
+            
+                <td>ldrate...
+ + incdec,t</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>60</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Junction->Junction'</td>
+            
+                <td>LabelString</td>
+            
+                <td>ldrate...
+*incdec,tic</td>
+            
+                <td>ldrate...
+ - incdec,t</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>61</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Junction->Junction'</td>
+            
+                <td>LabelString</td>
+            
+                <td>ldrate...
+*incdec,tic</td>
+            
+                <td>ldrate...
+ / incdec,t</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>62</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/Junction->Steady'</td>
+            
+                <td>LabelString</td>
+            
+                <td>.
+&&tspeed!=0]</td>
+            
+                <td>.
+&&tspeed  =0]</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>63</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Accel->Steady'</td>
+            
+                <td>LabelString</td>
+            
+                <td>[!AccelResSw</td>
+            
+                <td>[  AccelResS</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>64</td>
+            
+                <td>Transition</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Coast->Steady'</td>
+            
+                <td>LabelString</td>
+            
+                <td>[!CoastSetSw</td>
+            
+                <td>[  CoastSetS</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>65</td>
+            
+                <td>State</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Accel'</td>
+            
+                <td>ExecutionOrder</td>
+            
+                <td>1</td>
+            
+                <td>2</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>66</td>
+            
+                <td>State</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Steady'</td>
+            
+                <td>ExecutionOrder</td>
+            
+                <td>1</td>
+            
+                <td>2</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>67</td>
+            
+                <td>State</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Steady'</td>
+            
+                <td>ExecutionOrder</td>
+            
+                <td>1</td>
+            
+                <td>3</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>68</td>
+            
+                <td>State</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Steady'</td>
+            
+                <td>ExecutionOrder</td>
+            
+                <td>2</td>
+            
+                <td>3</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            <tr>
+                <td>69</td>
+            
+                <td>State</td>
+            
+                <td>'CruiseControl/Compute target speed/CRUISE/ON/Coast'</td>
+            
+                <td>ExecutionOrder</td>
+            
+                <td>1</td>
+            
+                <td>2</td>
+            
+                <td class=" survived" >SURVIVED</td>
+            </tr>
+            
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h2>Excluded Paths</h2>
+          <table class="table table-bordered" id="ExcludedPaths">
+            <thead>
+              <tr>
+                <th>Excluded Paths</th>
+              </tr>
+            </thead>
+            <tbody>
+            
+            </tbody>
+          </table>
+        </div>
+      </div>
+       <div class="row">
+        <div class="col-12">
+          <h2>Excluded Mutants</h2>
+          <table class="table table-bordered" id="ExcludedBlocks">
+            <thead>
+              <tr>
+                <th>Excluded Mutants</th>
+              </tr>
+            </thead>
+            <tbody>
+            
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script>
+        var perBeforeLabel = (c) => "%"+(c.raw.percentageValue).toFixed(0)
+        var realBeforeLabel = (c) => c.raw.realValue
+        var total_counts_by_types = {'Transition': 64, 'State': 5}
+        const myChart = new Chart(document.getElementById('columnchart'),{
+          type: 'bar',
+          data: {'labels': ['Transition', 'State'], 'datasets': [{'label': 'Killed', 'data': [{'id': 'Transition', 'realValue': 0, 'percentageValue': 0.0}, {'id': 'State', 'realValue': 0, 'percentageValue': 0.0}], 'stack': 0, 'backgroundColor': 'green'}, {'label': 'Survived', 'data': [{'id': 'Transition', 'realValue': 64, 'percentageValue': 100.0}, {'id': 'State', 'realValue': 5, 'percentageValue': 100.0}], 'stack': 0, 'backgroundColor': 'red'}]},
+          options: {
+          indexAxis: 'y',
+            plugins: {
+              tooltip: {
+                callbacks: {
+                    beforeLabel: perBeforeLabel,
+                    label: (c) => (c.raw.percentageValue == c.formattedValue) ? "%" + (c.raw.percentageValue).toFixed(0) : c.formattedValue
+                }
+              },
+              title: {
+                display: true,
+                text: 'Mutant Based Info by Block Type'
+              },
+            },
+            responsive: true,
+            scales: {
+              x: {
+                stacked: true,
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Mutant Count',
+                }
+              },
+              y: {
+                stacked: true
+              }
+            },
+            parsing: {
+              yAxisKey: 'id',
+              xAxisKey: 'realValue'
+            }
+          }
+        });
+
+        function switchModeMyChart(){
+            if(myChart.config.options.parsing.xAxisKey == "realValue"){
+                myChart.config.options.parsing.xAxisKey = "percentageValue"
+                myChart.config.options.plugins.tooltip.callbacks.beforeLabel = realBeforeLabel
+                myChart.config.options.scales.x.ticks = {
+                    callback: function (value) {
+                      return value + '%'; // convert it to percentage
+                    },
+                  }
+                myChart.config.options.scales.x.scaleLabel.labelString = "Percentage"
+            }else{
+                myChart.config.options.scales.x.ticks = undefined
+                myChart.config.options.parsing.xAxisKey = "realValue"
+                myChart.config.options.plugins.tooltip.callbacks.beforeLabel = perBeforeLabel
+                myChart.config.options.scales.x.scaleLabel.labelString = "Mutant Count"
+            }
+            myChart.update()
+        }
+    </script>
+  </body>
+</html>
