@@ -219,8 +219,8 @@ To run the tests for this project, you can use the following command:
 make test # or pytest
 ```
 
-# Cite This
+### Cite This
 
-1. H. I. Ceylan, O. Kilincceker, M. Beyazit and S. Demeyer, "MUT4SLX: Fast Mutant Generation for Simulink," 2023 38th IEEE/ACM International Conference on Automated Software Engineering (ASE), Luxembourg, Luxembourg, 2023, pp. 2086-2089, doi: 10.1109/ASE56229.2023.00093.
-2. Nuyens, S., Ceylan, H. I., Kilincceker, O., Beyazit, M., & Demeyer, S. (2024, March). MUT4SLX: Extensions for Mutation Testing of Stateflow Models. 2024 IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER), Rovaniemi, Finland, 2024.
+1. Ceylan, H. I., Kilincceker, O., Beyazit, M., & Demeyer, S. (2023, September). MUT4SLX: Fast Mutant Generation for Simulink. In 2023 38th IEEE/ACM International Conference on Automated Software Engineering (ASE) (pp. 2086-2089). IEEE.
+2. Nuyens, S., Ceylan, H. I., Kilincceker, O., Beyazit, M., & Demeyer, S. (2024, March). MUT4SLX: Extensions for Mutation Testing of Stateflow Models. In 2024 IEEE International Conference on Software Analysis, Evolution and Reengineering-Companion (SANER-C) (pp. 215-218). IEEE.
 
