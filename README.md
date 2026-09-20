@@ -1,3 +1,5 @@
+
+
 # MUT4SLX
 The MUT4SLX tool focuses on performing mutation testing on a model implemented in MATLAB/Simulink. It applies various mutation operators to the model and generates Simulink model mutants.
 
@@ -12,7 +14,7 @@ The MUT4SLX tool provides a structured framework for systematically generating m
 ## Features
 
 - Mutant generation: Apply a set of predefined mutation operators to the Simulink model.
-- CVS output generation: Generate an CSV output summarizing the mutations.
+- CSV output generation: Generate an CSV output summarizing the mutations.
 - HTML Report: Please note that the code used to generate this report is not open-sourced yet. [Open Report In Browser](https://rawcdn.githack.com/haliliceylan/MUT4SLX/4d3d570a058c539d058ae933ef03fac2bd6cdd7b/HelicopterSystem.html)
 
 ## Licensing Information
@@ -222,4 +224,3 @@ make test # or pytest
 
 1. Ceylan, H. I., Kilincceker, O., Beyazit, M., & Demeyer, S. (2023, September). MUT4SLX: Fast Mutant Generation for Simulink. In 2023 38th IEEE/ACM International Conference on Automated Software Engineering (ASE) (pp. 2086-2089). IEEE.
 2. Nuyens, S., Ceylan, H. I., Kilincceker, O., Beyazit, M., & Demeyer, S. (2024, March). MUT4SLX: Extensions for Mutation Testing of Stateflow Models. In 2024 IEEE International Conference on Software Analysis, Evolution and Reengineering-Companion (SANER-C) (pp. 215-218). IEEE.
-
